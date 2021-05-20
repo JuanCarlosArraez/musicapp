@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
 import { MusicService  } from '../services/music.service';
 import { Router} from '@angular/router';
 import { AngularFirestore} from '@angular/fire/firestore';
-
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-folder',
@@ -14,9 +15,11 @@ import { AngularFirestore} from '@angular/fire/firestore';
   styleUrls: ['./folder.page.scss'],
 })
 export class FolderPage implements OnInit {
-  public folder: string;
+public folder: string;
   categories: Observable<any[]>;
   Popular: Observable<any[]>;
+  Playlists: Observable<any[]>;
+  Song:any;
 
 
   slideOption = {
@@ -29,9 +32,15 @@ export class FolderPage implements OnInit {
     private activatedRoute: ActivatedRoute,
     private firestore: AngularFirestore,
     public  musicservice: MusicService,
-    public router: Router,) { }
+    public router: Router,
+    private statusBar: StatusBar,
+    private nativeAudio: NativeAudio
+    ) {
+     }
 
-
+  getPlaylists(){
+  this.Playlists = this.musicservice.getPlaylists();
+  }
 
   getCategory(){
     this.categories = this.musicservice.getPopular();
@@ -40,73 +49,94 @@ export class FolderPage implements OnInit {
   getPopularSong(){
     this.Popular = this.musicservice.getPopularSong();
   }
+  
+  openDetail(url,itemId){
+    this.router.navigateByUrl('/'+url+'/'+itemId);
+  }
+
+  getSong(){
+    this.musicservice.getPlaylists().subscribe(x => {
+    x.map(y => {
+    this.Song=  y.music 
+   });
+   });
+   return this.Song;
+   }
+
+  play(){
+    this.nativeAudio.preloadSimple('uniqueId1', this.Song)
+    this.nativeAudio.play('uniqueId1')
+  }
+
+  stop(){
+  this.nativeAudio.stop('uniqueId1');
+  }
+
+
 ///////////////////////////////////////////////////////////////////
 
-agg(number:number)
+/* agg(number:number)
 {
-return  this.firestore.collection<any>('music_popularsong').add({
+return  this.firestore.collection<any>('music_playlists').add({
 Available: "si",
 Visible:  "si",
-PriceEntero:number=5,
-PriceExtra:number=5,
-PriceMediaRacion:number=5,
-PriceMedio:number=5,
-PriceMedium:number=5,
-PriceRacion:number=5,
-PriceSmall:number=5,
-attribute0_name: "Tamaño",
-attribute3_name: "Tamaño",
-attribute1_name: "Opciones",
-attribute2_name: "Opciones",
-attribute0_visible: false,
-attribute1_visible: false,
-attribute2_visible: false, //boolean
-attribute3_visible: false,
-description: "",
-food_categoryId: "",
-food_category_name: "",
+
 image: "",
 name:"",
-price: number=5,
-promotion: true,  //-------------------Food_promotion
-Descuento: "-5$", //-------------------Food_promotion
+year: number = 1998,
 rating: number=4,
 recommended: false,
-short_description: "",
-stock:number=100,
+description:""
+});
+} */
 
-attribute0_value:[ 
-"Ración",
-"1/2 Ración"],
+/* agg(number:number)
+{
+return  this.firestore.collection<any>('music_popular').add({
+Available: "si",
+Visible:  "si",
 
-attribute1_value:[ 
-"Pequeño",
-"Mediano",
-"Grande"],
+music_categoryId: "",
+music_category_name:"",
+image: "",
+name:"",
+year: number = 1998,
+rating: number=4,
+recommended: false,
+description:"",
+short_description:""
+});
+}
+ */
+agg(number:number)
+{
+return  this.firestore.collection<any>('music_bands').add({
+Available: "si",
+Visible:  "si",
 
-attribute2_value:
-[
-{"Price": number=5, 
- "isChecked": false,
- "name": "Milk"},
-
-{"Price": number=5, 
-"isChecked": false ,
-"name": "Milk"}
-],
-
-attribute3_value:[ 
-"Entero",
-"Medio"]
+music_categoryId: "",
+music_category_name:"",
+image: "",
+name:"",
+year: number = 1998,
+rating: number=4,
+recommended: false,
+description:"",
+short_description:""
 });
 }
 
 
+
+
 ///////////////////////////////////////////////////////////////////
-  ngOnInit() {
+ async ngOnInit() {
+    this.getSong();
+    this.getPlaylists();
     this.getPopularSong();
     this.getCategory();
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
+    this.statusBar.backgroundColorByHexString('#ff4500');
   }
 
 }

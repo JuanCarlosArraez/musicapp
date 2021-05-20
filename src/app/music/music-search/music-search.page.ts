@@ -41,7 +41,7 @@ export class MusicSearchPage implements OnInit {
     // call loading //
 
 
-    this.router.navigateByUrl('music/music-detail/'+itemId);
+    this.router.navigateByUrl('/music-detail/'+itemId);
     await this.modalController.dismiss();
     //this.router.navigateByUrl('/side-menu/travel/tabs/tab1/travel-place-detail/'+placeId);
 
@@ -62,7 +62,7 @@ export class MusicSearchPage implements OnInit {
 
   ngOnInit() {
     console.log("--------------first time loaded-------------");
-    this.musicservice.searchItem().subscribe(results => {
+    this.musicservice.getBands().subscribe(results => {
       console.log(results);
       this.loadedResultList = results;
     });

@@ -1,33 +1,41 @@
 
 
 <ion-content [fullscreen]="true">
+<ion-grid  class="ion-no-padding" >
 
 
-  <app-back></app-back>
-  <app-header></app-header>
+  
 
-  <br>
-  <ion-grid  class="ion-no-padding" >
-  <ion-slides class="swiper-container" pager= false [options]="slideOption" #slidesOne >
+ <!-- /////////// -->
+ <!-- Inicio-->
+ <!-- /////////// -->  
+ <div *ngIf="this.router.url === '/folder/Inicio'">  
+ <app-back></app-back>
+ <app-header></app-header>
 
-    <ion-slide *ngFor="let category of categories | async " (click)="openDetail('music-list',category.id)">
-      <ion-card class="music-main-h-card music-card2 slide-left fade-in-left"  >
-      
-            <div class="music-card2-bg ion-text-uppercase" [ngStyle]="{'background-image': 'url(' + category.image+ ')'}" >
-                <h2 class="card2-title">   <br><br><br>{{category.name}}</h2>                           
-            </div>
-      </ion-card>
-    </ion-slide>
-  </ion-slides>
- 
 
-<ion-item lines="none" class=" margin-left-0">
+
+<ion-slides class="swiper-container" pager= false [options]="slideOption" #slidesOne  style="z-index: 2;">
+<ion-slide *ngFor="let category of categories | async " (click)="openDetail('music-list',category.id)">
+<ion-card class="music-main-h-card music-card2 slide-left fade-in-left"  >
+<div class="music-card2-bg ion-text-uppercase" [ngStyle]="{'background-image': 'url(' + category.image+ ')'}" >
+<h2 class="card2-title">   <br><br><br>{{category.name}}</h2>                           
+</div>
+</ion-card>
+</ion-slide>
+</ion-slides>
+
+<br><br><br><br><br><br><br><br><br>
+<div class="borde"></div>
+
+  
+  <ion-item lines="none" class=" margin-left-0">
   <ion-buttons >
     <ion-button  color="translucent" mode="ios" class="main-header8-500 " >
       All
     </ion-button>
     <ion-button  color="translucent" mode="ios"  class="main-header8-500" >
-      Song
+      Bands
     </ion-button>
     <ion-button  color="translucent" mode="ios" class="main-header8-500"  >
       Albums
@@ -38,22 +46,17 @@
   </ion-buttons>
 </ion-item>
 
+  
+<ion-item lines="none">
+<label>
+ <h1 class="letterinicio " style=" margin-top: -15px !important;">The Best Albums</h1>
+<!-- ///Add elements to  database -->
+ <!--  <ion-button color="" fill="blank" expand="full" (click)="agg()">agg</ion-button> -->
+</label>
+</ion-item>
 
 
-
-
-
-  <div *ngIf="this.router.url === '/folder/Bands%20Rock'"> 
-    <ion-item lines="none">
-      <label>
-        <h1 class="letterinicio " style="margin-bottom:-10px;">Popular Song</h1>
-    
-        <!-- ///Agregar nuevo elemento a la base de datos -->
-        <!-- <ion-button color="" fill="blank" expand="full" (click)="agg()">agg</ion-button> -->
-      </label>
-      </ion-item>
-      
-  <ion-slides class="swiper-container" pager= false [options]="slideOption" #slidesOne >
+  <ion-slides class="swiper-container" pager= false [options]="slideOption" #slidesOne style="margin-top:-40px !important;" >
     <ion-slide *ngFor="let popular of Popular | async " (click)="openDetail('music-list',popular.id)">
       <ion-card class="music-main-h-card music-card0 slide-left fade-in-left"  >
       
@@ -64,37 +67,51 @@
     </ion-slide>
   </ion-slides>
 
- 
+  
+  <br><br><br><br><br><br>
+  <ion-item lines="none" style=" z-index: 10000 !important;">
+    <label>
+      <h1 class="letterinicio " >Play Lists</h1>
+      <h1 class="music_header3 fade-in" style=" margin-top: -10px !important; margin-bottom: 25px !important;">Lo más escuchado</h1>
+    </label>
+    </ion-item>
+      <ion-list style="margin-top:-15px; z-index: 4;" *ngFor=" let playlists of Playlists | async">
+        <ion-item (click)="openDetail('playermusic',playlists.id)" lines="full">
+          
+          <ion-avatar slot="start">
+           <img src="{{playlists.image}}" alt="" >
+          </ion-avatar>
+          
+          <ion-label>
+            <h2> {{playlists.name}} </h2>
+            <p>{{playlists.year}}
+          </ion-label>
+          
+          <ion-thumbnail class="ion-text-center" slot="end">
+            <br>
+            <div >
+            <ion-icon name="play-circle"></ion-icon>
+            </div>
+          </ion-thumbnail>
+        </ion-item>
+        
+      </ion-list>
+ </div>
+
+
+
+ <!-- /////////// -->
+ <!-- Bands Rock -->
+ <!-- /////////// -->
+ <div *ngIf="this.router.url === '/folder/Bands%20Rock'">
+  <app-back-short></app-back-short>
+  <app-header></app-header>
+
+
 
 
 </div>
 
-  </ion-grid>
-  <br><br><br><br><br><br><br><br><ion-item lines="none">
-    <label>
-      <h1 class="letterinicio " style="margin-top:-25px; z-index: 2;">Play Lists</h1>
-    </label>
-    </ion-item>
-    
-  
-      <ion-list style="margin-top:-25px; z-index: 4;">
-        <ion-item >
-          
-          <ion-avatar slot="start">
-            <img src="" alt="no">
-          </ion-avatar>
-            
-          <ion-label>
-            <h2>Luke</h2>
-            <p>I feelp>
-          </ion-label>
-          <ion-thumbnail class="ion-text-center" slot="end">
-            <br>
-            <ion-icon name="chevron-forward-outline"></ion-icon>
-          </ion-thumbnail>
-        </ion-item>
-      </ion-list>
-  
   
 
 
@@ -102,7 +119,5 @@
 
 
 
-
-
-
+</ion-grid>
 </ion-content>

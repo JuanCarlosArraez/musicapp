@@ -13,7 +13,12 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import {HeaderComponent} from './components/header/header.component';
 import {BackComponent} from './components/back/back.component';
+import {BackShortComponent} from './components/back-short/back-short.component';
 import { MusicSearchPageModule} from './music/music-search/music-search.module'
+
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
+import {  Media } from '@ionic-native/media/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +31,11 @@ import { MusicSearchPageModule} from './music/music-search/music-search.module'
     MusicSearchPageModule
   ],
   providers: [
+    StatusBar,
+    NativeAudio,
+    Media,
     BackComponent,
+    BackShortComponent,
     HeaderComponent,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy, }],
   bootstrap: [AppComponent],

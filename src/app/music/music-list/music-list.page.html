@@ -1,0 +1,28 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="success"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark" class="main-b-header6">Bands</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <ion-grid fixed class="ion-no-padding">
+    <ion-row>
+      <ion-col size-lg="6" size-md="6" size-sm="6" size="12" *ngFor="let band of Bands | async">
+        <ion-card class="card-main card-wide2 fade-in" tappable>
+          <div class="card-wide2-bg " [ngStyle]="{'background-image': 'url(' + band.image+ ')'}"
+            routerLink="../../../food-list/{{band.id}}">
+            <h2 class="card-s-wide-title"> {{band.name}}</h2>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>
