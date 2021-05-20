@@ -1,0 +1,25 @@
+<ion-header  class="ion-no-border ">
+  <ion-toolbar>
+    <ion-grid fixed class="ion-no-padding">
+      <ion-searchbar class="ion-margin-top" #searchbar placeholder="The Rolling Stones..." showCancelButton  (ionInput)="filterList($event)" (ionCancel)="close()" cancelButtonText="Cerrar"></ion-searchbar>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content no-padding>
+  <ion-grid fixed class="ion-no-padding">
+      <ion-list class="ion-margin-top">
+          <ion-item *ngFor="let result of resultList" lines="none" button  (click)="openDetail(result.id)"     >
+              <ion-thumbnail slot="start">
+                  <ion-img [src]="result.image"></ion-img>
+              </ion-thumbnail>
+              <ion-label>
+                  <h2>{{result.name}}</h2>
+                  <p>{{result.description}}</p>
+                  <ion-icon style="font-size: 14px !important;" color="warning" *ngFor="let i of [0,1,2,3,4]" [name]="i < result.rating ? 'star' : 'star-outline'">
+                </ion-icon>
+              </ion-label>
+          </ion-item>
+      </ion-list>
+    </ion-grid>
+</ion-content>

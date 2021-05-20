@@ -1,5 +1,7 @@
 {
   "name": "kibideApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

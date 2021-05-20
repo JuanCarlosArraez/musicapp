@@ -1,0 +1,21 @@
+<ion-header  class="ion-no-border">
+  <ion-toolbar color="translucent">
+  <ion-buttons slot="start" >
+  <ion-menu-button  class="title-intro" ><ion-icon name="musical-note"></ion-icon></ion-menu-button>
+  </ion-buttons>
+  <ion-title class="ion-text-center title-intro">{{ folder }}</ion-title>
+ 
+          <ion-buttons slot="end">
+<!-- Search -->
+          <ion-button class="badge-button lupa  fade-in"  (click)="openSearchModal()"   contentId="maintwo"  menuId="four">
+          <ion-icon name="search-outline"></ion-icon>
+          </ion-button>
+<!-- User -->
+          <ion-button class="badge-button user fade-in"  (click)="openEnded()"   contentId="maintwo"  menuId="four">
+          <ion-icon name="person-circle-outline" color="dark">
+          </ion-icon>
+          </ion-button>
+        
+          </ion-buttons>
+</ion-toolbar>
+</ion-header>
