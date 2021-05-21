@@ -1,28 +1,47 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button color="success"></ion-back-button>
-    </ion-buttons>
-    <ion-title color="dark" class="main-b-header6">Bands</ion-title>
-
-  </ion-toolbar>
-</ion-header>
-
 
 
 <ion-content>
-  <ion-grid fixed class="ion-no-padding">
-    <ion-row>
-      <ion-col size-lg="6" size-md="6" size-sm="6" size="12" *ngFor="let band of Bands | async">
-        <ion-card class="card-main card-wide2 fade-in" tappable>
-          <div class="card-wide2-bg " [ngStyle]="{'background-image': 'url(' + band.image+ ')'}"
-            routerLink="../../../food-list/{{band.id}}">
-            <h2 class="card-s-wide-title"> {{band.name}}</h2>
-          </div>
-        </ion-card>
-      </ion-col>
-    </ion-row>
+<!-- /////////// -->
+ <!--------Albums-->
+ <!-- /////////// -->
+ <div *ngIf="this.router.url === '/music-list/Albums'">
+<!-- background -->
+<app-back></app-back>
+<!-- header -->
+<app-header-album></app-header-album>
+<!-- Section1 ('big' Carrousel )-->
 
-  </ion-grid>
+ 
+<ion-grid fixed class="ion-no-padding">
+      <ion-grid class="ion-margin-top ion-padding-top">
+          <ion-row wrap>
+              <ion-col tappable size-lg="4" size-md="4" size-sm="6" size="6" class="ion-padding"
+                  *ngFor="let band of Bands | async" >
+                  <ion-card mode="ios" class="food-main-card food-card-tall ion-margin-bottom"
+                      routerLink="../music-detail/{{band.id}}">
 
+                      <div class="food-div-tall-bg fade-in-left" [ngStyle]="{'background-image': 'url(' + band.image+ ')'}"></div>
+                      <div class="margin-top-5 main-header10" text-wrap>{{band.name}}</div>
+                      <ion-icon style="font-size: 12px !important;" color="warning" *ngFor="let i of [0,1,2,3,4]"
+                          [name]="i < band .rating  ? 'star' : 'star-outline'"></ion-icon>
+                 
+
+                  </ion-card>
+              </ion-col>
+          </ion-row>
+      </ion-grid>
+ </ion-grid>
+
+
+
+
+
+
+
+
+<!-- section2 (Mini Carrousel) -->
+<!-- <app-section-dos></app-section-dos> -->
+
+
+</div>
 </ion-content>

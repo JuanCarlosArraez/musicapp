@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Observable} from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { MusicService  } from '../../services/music.service';
 
 @Component({
@@ -10,25 +10,22 @@ import { MusicService  } from '../../services/music.service';
   styleUrls: ['./music-list.page.scss'],
 })
 export class MusicListPage implements OnInit {
-  item: Observable<any>;
-  itemArray: any=[];
-  itemSubscribe: any;
-
+  items: Observable<any>;
   itemId: any;
 
    Bands: Observable<any[]>; 
    
-  constructor(public  musicservice: MusicService,
+  constructor(
+    public router: Router,
+    public  musicservice: MusicService,
     private activatedRoute: ActivatedRoute,)
    {
     this.itemId = this.activatedRoute.snapshot.paramMap.get('bandsId');
     }
 
   async ngOnInit() {
-    this.item =  await this.musicservice.getItemDetail( this.itemId);
-    this.itemSubscribe = this.item.subscribe(res => {
-    this.itemArray = res;
-    });
+  
+    this.items = this.musicservice.getItemByCatId(this.itemId);
     this.Bands = this.musicservice.getBands();
   }
 

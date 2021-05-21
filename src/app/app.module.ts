@@ -11,14 +11,33 @@ import { environment } from '../environments/environment.prod';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
-import {HeaderComponent} from './components/header/header.component';
-import {BackComponent} from './components/back/back.component';
-import {BackShortComponent} from './components/back-short/back-short.component';
-import { MusicSearchPageModule} from './music/music-search/music-search.module'
+/* otros */
+import { MusicSearchPageModule} from './music/music-search/music-search.module';
 
+/* global */
+import {HeaderComponent} from './components/global/header/header.component';
+import {BackComponent} from './components/global/back/back.component';
+import {BackShortComponent} from './components/global/back-short/back-short.component';
+
+/* Inicio */
+import {ButtonsStartComponent} from './components/inicio/buttons-start/buttons-start.component';
+import { SectionOneComponent} from './components/inicio/section-one/section-one.component';
+import { SectionTwoComponent} from './components/inicio/section-two/section-two.component';
+import { SectionThreeComponent} from './components/inicio/section-three/section-three.component';
+
+/* Rockbands */
+import {BandRockComponent} from './components/bandsrock/band-rock/band-rock.component';
+
+/* Album */
+import { HeaderAlbumComponent } from "./components/album/header-album/header-album.component";
+import { SectionUnoComponent } from "./components/album/section-uno/section-uno.component";
+import { SectionDosComponent } from "./components/album/section-dos/section-dos.component";
+
+/* Plugins */
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
 import {  Media } from '@ionic-native/media/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,12 +50,25 @@ import {  Media } from '@ionic-native/media/ngx';
     MusicSearchPageModule
   ],
   providers: [
+    /* plugins */
     StatusBar,
     NativeAudio,
     Media,
+    /* global */
     BackComponent,
     BackShortComponent,
     HeaderComponent,
+    /* inicio */
+    ButtonsStartComponent, 
+    SectionOneComponent,
+    SectionTwoComponent,
+    SectionThreeComponent,
+    /* Rock Band */
+    BandRockComponent,
+    /* Albums */
+    HeaderAlbumComponent,
+    SectionUnoComponent,
+    SectionDosComponent,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy, }],
   bootstrap: [AppComponent],
 })

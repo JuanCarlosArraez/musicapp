@@ -1,0 +1,29 @@
+
+  <ion-item lines="none" class="playlists">
+    <label>
+      <h1 class="letterinicio " >Play Lists</h1>
+      <h1 class="music_header3 fade-in lomasescuchado">Lo más escuchado</h1>
+    </label>
+    </ion-item>
+    <br><br>
+      <ion-list class="minicarrousel" *ngFor=" let playlists of Playlists | async">
+        <ion-item (click)="openDetail('playermusic',playlists.id)" lines="none">
+          
+          <ion-avatar slot="start">
+           <img src="{{playlists.image}}" alt="" >
+          </ion-avatar>
+          
+          <ion-label>
+            <h2> {{playlists.name}} </h2>
+            <p>{{playlists.year}}
+          </ion-label>
+          
+          <ion-thumbnail class="ion-text-center" slot="end">
+            <br>
+            <div >
+            <ion-icon name="play-circle"></ion-icon>
+            </div>
+          </ion-thumbnail>
+        </ion-item>
+        
+      </ion-list>

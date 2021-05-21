@@ -1,0 +1,12 @@
+<div class="borde"></div>
+  
+<ion-row >
+  <ion-col size-lg="6" size-md="6" size-sm="6" size="12" style="z-index: 20000 !important;" *ngFor="let band of Bands | async">
+    <ion-card class="card-main card-wide fade-in" tappable>
+      <div class="card-wide-bg " [ngStyle]="{'background-image': 'url(' + band.image+ ')'}"
+        routerLink="../music-detail/{{band.id}}">
+        <h2 class="card-wide-title"> {{band.name}}</h2>
+      </div>
+    </ion-card>
+  </ion-col>
+</ion-row>

@@ -8,18 +8,37 @@
 
 <ion-content no-padding>
   <ion-grid fixed class="ion-no-padding">
-      <ion-list class="ion-margin-top">
-          <ion-item *ngFor="let result of resultList" lines="none" button  (click)="openDetail(result.id)"     >
+      <ion-list class="ion-margin-top" *ngFor="let result of resultList">
+          <ion-item  *ngIf="resultList.length >= 1" lines="none" button  (click)="openDetail(result.id)"     >
               <ion-thumbnail slot="start">
                   <ion-img [src]="result.image"></ion-img>
               </ion-thumbnail>
               <ion-label>
                   <h2>{{result.name}}</h2>
                   <p>{{result.description}}</p>
-                  <ion-icon style="font-size: 14px !important;" color="warning" *ngFor="let i of [0,1,2,3,4]" [name]="i < result.rating ? 'star' : 'star-outline'">
+                  <ion-icon style="font-size: 14px !important;" color="danger" *ngFor="let i of [0,1,2,3,4]" [name]="i < result.rating ? 'star' : 'star-outline'">
                 </ion-icon>
               </ion-label>
           </ion-item>
       </ion-list>
+
+
     </ion-grid>
+    <div *ngIf="resultList.length == 0">
+    <div class="center No">
+    <ion-icon name="play-circle-outline"  [ngStyle]="{'transform':  'scale(15.5)'}" color="light" ></ion-icon>
+    </div>
+    <br><br><br><br><br><br>
+    <ion-text color="ulightgrey" class="ion-margin-bottom center">
+    <h1 class="main-header4">¿No has encontrado tu banda?</h1>
+    </ion-text>
+    <br>
+    <br>
+    <div class="ion-text-center slide-right agregarbanda" >
+    <ion-button mode="ios"  shape="round"  color="danger" class="main-header7" (click)="AddBand()">¡Agrégala!
+    </ion-button>
+    <br><br><br>
+    </div>
+    </div>
+  
 </ion-content>

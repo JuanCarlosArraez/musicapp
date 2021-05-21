@@ -32,26 +32,6 @@ searchItem(){
 
 
 //************************//
-//****** Popular**********//
-//************************//
-
-getPopular(){
-  console.log("start getPopular");
-  return this.firestore.collection<any>('music_popular', ref => ref
-  .where('Visible', '==', 'si' )).snapshotChanges().pipe(
-    map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data();
-        // get id from firebase metadata 
-        const id = a.payload.doc.id; 
-        return { id, ...data };
-      });
-    })
-  );
-
-}
-
-//************************//
 //****** PopularSong ******//
 //************************//
 
@@ -99,7 +79,6 @@ getPlaylists(){
 
 getItemDetail(itemId: string){
   return this.firestore.doc<any>('music_playlists/'+itemId).valueChanges();
-
 }
 
 
@@ -122,6 +101,52 @@ getBands(){
   );
 
 }
+//*************************************//
+//******** Item by categoryId *********//
+//*************************************//
+
+getItemByCatId(bandsId: string){
+  return this.firestore.collection<any>('/music_albums', ref => ref
+  .where('music_category_name', '==', bandsId).where('Available', '==', 'si' ).where('Visible', '==', 'si' ))
+  //.orderBy("timestamp", "desc").limit(10))
+  .snapshotChanges().pipe(
+    map(actions => {  
+      return actions.map(a => {
+        const data = a.payload.doc.data();
+        // get id from firebase metadata 
+        const id = a.payload.doc.id; 
+        return { id, ...data };
+      });
+    })
+  );
+}
+
+//******************************//
+//****** Get Albums  ************//
+//******************************//
+
+getAlbums(){
+  console.log("start getAlbums");
+  return this.firestore.collection<any>('music_albums', ref => ref
+  .where('Visible', '==', 'si' )).snapshotChanges().pipe(
+    map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data();
+        // get id from firebase metadata 
+        const id = a.payload.doc.id; 
+        return { id, ...data };
+      });
+    })
+  );
+
+}
+
+
+
+
+
+
+
 
 
 }

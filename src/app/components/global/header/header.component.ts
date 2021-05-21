@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController} from '@ionic/angular';
-import { MusicSearchPage} from '../../music/music-search/music-search.page';
+import { MusicSearchPage} from '../../../music/music-search/music-search.page';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

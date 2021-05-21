@@ -27,6 +27,26 @@ const routes: Routes = [
     path: 'music-detail/:detailId',
     loadChildren: () => import('./music/music-detail/music-detail.module').then( m => m.MusicDetailPageModule)
   },
+  {
+    path: 'music-login',
+    loadChildren: () => import('./music/music-login/music-login.module').then( m => m.MusicLoginPageModule)
+  },
+  {
+    path: 'music-register',
+    loadChildren: () => import('./music/music-register/music-register.module').then( m => m.MusicRegisterPageModule)
+  },
+  {
+    path: 'music-verifyemail',
+    loadChildren: () => import('./music/music-verifyemail/music-verifyemail.module').then( m => m.MusicVerifyemailPageModule)
+  },
+  {
+    path: 'music-forgot-password',
+    loadChildren: () => import('./music/music-forgot-password/music-forgot-password.module').then( m => m.MusicForgotPasswordPageModule)
+  },
+  {
+    path: 'music-add-band',
+    loadChildren: () => import('./music/music-add-band/music-add-band.module').then( m => m.MusicAddBandPageModule)
+  },
 
 ];
 

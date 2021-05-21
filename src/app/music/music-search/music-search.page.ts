@@ -1,10 +1,9 @@
 
 
 import { Component, OnInit , ViewChild} from '@angular/core';
-import { AngularFirestore} from '@angular/fire/firestore';
 
-import { ActivatedRoute , Router} from '@angular/router';
-import { IonContent ,ModalController,NavParams,NavController, IonSearchbar} from '@ionic/angular';
+import {  Router} from '@angular/router';
+import { ModalController, IonSearchbar} from '@ionic/angular';
 import {MusicService  } from '../../services/music.service';
 
 
@@ -21,11 +20,8 @@ export class MusicSearchPage implements OnInit {
   public loadedResultList: any[];
 
   constructor(
-    private firestore: AngularFirestore,
     public  musicservice: MusicService,
     private modalController: ModalController,
-    private activatedRoute: ActivatedRoute,
-    private navController: NavController,
     public router: Router,
   ) { }
 
@@ -36,24 +32,16 @@ export class MusicSearchPage implements OnInit {
 
   async openDetail(itemId){
     console.log("itemId"+itemId);
-
-    
     // call loading //
-
-
     this.router.navigateByUrl('/music-detail/'+itemId);
     await this.modalController.dismiss();
-    //this.router.navigateByUrl('/side-menu/travel/tabs/tab1/travel-place-detail/'+placeId);
 
-    // set timeout
-    // setTimeout(function(){
-    //   await this.modalController.dismiss();
-    // }, 1000);
-    //await this.modalController.dismiss();
-    //await this.delay(1000);
-   
   }
 
+  async AddBand(){
+    this.router.navigateByUrl('/music-add-band');
+    await this.modalController.dismiss();
+  }
 
   delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
@@ -66,12 +54,9 @@ export class MusicSearchPage implements OnInit {
       console.log(results);
       this.loadedResultList = results;
     });
-    // this.firestore.collection<any>('/travel_place').valueChanges().subscribe( results => {
-    //     //this.resultList = results;
-    //     this.loadedResultList = results;
-    // });
+   
     let timeoutID = setTimeout(() => {
-      this.searchbar.setFocus();
+     /*  this.searchbar.setFocus(); */
       console.log("setFocus()=======");
       clearTimeout(timeoutID);
     }, 200)

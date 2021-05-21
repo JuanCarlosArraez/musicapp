@@ -1,12 +1,16 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay" >
-      <ion-content>
-        <ion-list id="inbox-list" >
-          <ion-avatar slot="end">
-            <img  src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-          </ion-avatar>
+    <ion-menu contentId="main-content" type="overlay" swipe-gesture="false" >
 
+      <div class="imagesidemenu">
+        <div class="center logo">
+        <ion-icon name="planet" [ngStyle]="{'transform':  'scale(10.5)'}" color="light" ></ion-icon>
+      </div>
+      </div>
+
+
+      <ion-content lines="none">
+        <ion-list id="inbox-list" >
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
@@ -15,15 +19,27 @@
           </ion-menu-toggle>
         </ion-list>
 
-        <!-- <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
-          </ion-item>
-        </ion-list> -->
       </ion-content>
+
+      <ion-footer>
+      <ion-menu-toggle >
+      <ion-button mode="ios"  expand="full" color="translucent" lines="none" routerLink="../../music-add-band">
+      <ion-text color="dark" class="main-header7">Add Band 
+      </ion-text> 
+      <ion-icon name="add" color="dark"  slot="end">
+      </ion-icon>
+      </ion-button>
+      </ion-menu-toggle>
+      <ion-menu-toggle >
+      <ion-button mode="ios"  expand="full" color="light" (click)="onLogout()" class="main-header7">
+      Cerrar Sesión <ion-icon name="log-out-outline" slot="end">
+      </ion-icon>
+      </ion-button>
+      </ion-menu-toggle>
+      </ion-footer>
+
+
+
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>

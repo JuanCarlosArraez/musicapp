@@ -1,0 +1,18 @@
+
+<ion-slides class="swiper-container" pager= false 
+[options]="slideOption" #slidesOne  style="z-index: 2;"
+>
+
+  <ion-slide  *ngFor="let rockband of Rockbands| async "
+  >
+  <ion-card class="music-main-h-card music-card2 slide-left fade-in-left"  *ngIf="rockband.recommended" (click)="openDetail('music-detail',rockband.id)">
+  <div class="music-card2-bg ion-text-uppercase" [ngStyle]="{'background-image': 'url(' + rockband.image+ ')'}" >
+  <h2 class="card2-title">   <br><br><br><br>{{rockband.name}}</h2>                           
+  </div>
+  </ion-card>
+  </ion-slide>
+  </ion-slides>
+  
+  <br><br><br><br><br><br><br><br><br>
+  <div class="borde"></div>
+  

@@ -8,6 +8,16 @@ import { MusicListPageRoutingModule } from './music-list-routing.module';
 
 import { MusicListPage } from './music-list.page';
 
+/* global */
+import {BackComponent} from '../../components/global/back/back.component';
+
+/* Inicio */
+import {ButtonsStartComponent} from '../../components/inicio/buttons-start/buttons-start.component';
+
+/* Album */
+import { HeaderAlbumComponent } from "../../components/album/header-album/header-album.component";
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +25,6 @@ import { MusicListPage } from './music-list.page';
     IonicModule,
     MusicListPageRoutingModule
   ],
-  declarations: [MusicListPage]
+  declarations: [MusicListPage, BackComponent, ButtonsStartComponent, HeaderAlbumComponent]
 })
 export class MusicListPageModule {}

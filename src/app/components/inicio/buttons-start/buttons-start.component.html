@@ -1,0 +1,28 @@
+<ion-item lines="none" class=" margin-left-0">
+  <ion-buttons >
+    
+    <!-- First -->
+    <div *ngIf="this.router.url === '/folder/Inicio'; else alldark">
+    <ion-button  color="translucent" mode="ios" class="main-header6 "  >
+      <strong> All</strong>
+    </ion-button>
+  </div>
+  <ng-template #alldark>
+    <ion-button  color="translucent" mode="ios" class="main-header8-500 "   routerLink="/folder/Inicio">
+      All
+    </ion-button>
+  </ng-template>
+
+  <!-- Second -->
+    <div *ngIf="this.router.url === '/music-list/Albums'; else albumdark">
+      <ion-button  color="translucent" mode="ios" class="main-header6 "  >
+       <strong>Albums</strong> 
+      </ion-button>
+    </div>
+    <ng-template #albumdark>
+      <ion-button  color="translucent" mode="ios" class="main-header8-500 "  routerLink="/music-list/Albums">
+        Albums
+      </ion-button>
+    </ng-template>
+  </ion-buttons>
+</ion-item>
