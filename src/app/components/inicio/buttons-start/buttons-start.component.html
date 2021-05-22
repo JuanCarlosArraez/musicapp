@@ -14,6 +14,19 @@
   </ng-template>
 
   <!-- Second -->
+  <div *ngIf="this.router.url === '/folder/Rock%20Bands'; else rockdark">
+    <ion-button  color="translucent" mode="ios" class="main-header6 "  >
+     <strong>Rock Bands</strong> 
+    </ion-button>
+  </div>
+  <ng-template #rockdark>
+    <ion-button  color="translucent" mode="ios" class="main-header8-500 "  routerLink="/folder/Rock Bands">
+      Rock Bands
+    </ion-button>
+  </ng-template>
+
+
+  <!-- Third -->
     <div *ngIf="this.router.url === '/music-list/Albums'; else albumdark">
       <ion-button  color="translucent" mode="ios" class="main-header6 "  >
        <strong>Albums</strong> 

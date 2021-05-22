@@ -3,24 +3,26 @@
 <ion-content [fullscreen]="true">
 <ion-grid  class="ion-no-padding" >
 
+<!-- background -->
+<app-back></app-back>
+<!-- header -->
+<app-header></app-header>
+<!-- Section1 ('big' Carrousel )-->
+<app-section-one></app-section-one>
+<!-- buttons -->
+<app-buttons-start></app-buttons-start>
+
+
 
  <!-- /////////// -->
  <!-- Inicio-->
  <!-- /////////// -->  
  <div *ngIf="this.router.url === '/folder/Inicio'">  
-<!-- background -->
- <app-back></app-back>
- <!-- header -->
- <app-header></app-header>
-<!-- Section1 ('big' Carrousel )-->
-<app-section-one></app-section-one>
-  <!-- buttons -->
-<app-buttons-start></app-buttons-start>
 <!-- section2 (Mini Carrousel) -->
 <section-two></section-two>
 <!-- section3 (Playlists) -->
 <app-section-three></app-section-three>
- </div>
+</div>
 
 
 
@@ -28,11 +30,9 @@
  <!--  Rock Bands-->
  <!-- /////////// -->
 
- <div *ngIf="this.router.url === '/folder/Rock%20Bands'">
-  <app-back-short></app-back-short>
-  <app-header></app-header>
-  <app-band-rock></app-band-rock>
-  </div>
+<div *ngIf="this.router.url === '/folder/Rock%20Bands'">
+<app-band-rock></app-band-rock>
+</div>
 
 
 

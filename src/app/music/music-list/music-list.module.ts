@@ -16,8 +16,8 @@ import {ButtonsStartComponent} from '../../components/inicio/buttons-start/butto
 
 /* Album */
 import { HeaderAlbumComponent } from "../../components/album/header-album/header-album.component";
-
-
+import { SectionUnoComponent } from "../../components/album/section-uno/section-uno.component";
+import { SectionDosComponent } from "../../components/album/section-dos/section-dos.component";
 @NgModule({
   imports: [
     CommonModule,
@@ -25,6 +25,12 @@ import { HeaderAlbumComponent } from "../../components/album/header-album/header
     IonicModule,
     MusicListPageRoutingModule
   ],
-  declarations: [MusicListPage, BackComponent, ButtonsStartComponent, HeaderAlbumComponent]
+  declarations: [
+    MusicListPage,
+    BackComponent,
+    ButtonsStartComponent, 
+    HeaderAlbumComponent,
+    SectionUnoComponent,
+    SectionDosComponent ]
 })
 export class MusicListPageModule {}

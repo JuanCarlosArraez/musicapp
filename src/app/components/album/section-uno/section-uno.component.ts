@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { MusicService  } from '../../../services/music.service';
-
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-section-uno',
@@ -19,11 +19,14 @@ export class SectionUnoComponent implements OnInit {
   };
 
   constructor(
-  public  musicservice: MusicService) 
+  public  musicservice: MusicService,
+  public router: Router,) 
   { 
 
   }
-
+  openDetail(url,itemId){
+    this.router.navigateByUrl('/'+url+'/'+itemId);
+  }
   getAlbum(){
     this.Albums = this.musicservice.getAlbums();
   }

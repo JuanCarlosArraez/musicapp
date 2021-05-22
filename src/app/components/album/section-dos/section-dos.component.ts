@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { MusicService  } from '../../../services/music.service';
+import { ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-section-dos',
@@ -7,8 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionDosComponent implements OnInit {
 
-  constructor() { }
+  public items: Observable<any[]>;
 
-  ngOnInit() {}
+  constructor(
+    public  musicservice: MusicService,
+    public router: Router,
+    private activatedRoute: ActivatedRoute,) { 
+    }
+    openDetail(url,itemId){
+      this.router.navigateByUrl('/'+url+'/'+itemId);
+    }
+  ngOnInit() {
+    this.items = this.musicservice.getItemByCatId();
+  }
 
 }

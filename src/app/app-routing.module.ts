@@ -12,10 +12,6 @@ const routes: Routes = [
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
   {
-    path: 'music-search',
-    loadChildren: () => import('./music/music-search/music-search.module').then( m => m.MusicSearchPageModule)
-  },
-  {
     path: 'playermusic/:playlistsId',
     loadChildren: () => import('./music/playermusic/playermusic.module').then( m => m.PlayermusicPageModule)
   },
@@ -26,6 +22,14 @@ const routes: Routes = [
   {
     path: 'music-detail/:detailId',
     loadChildren: () => import('./music/music-detail/music-detail.module').then( m => m.MusicDetailPageModule)
+  },
+  {
+    path: 'music-album-detail/:albumId',
+    loadChildren: () => import('./music/music-album-detail/music-album-detail.module').then( m => m.MusicAlbumDetailPageModule)
+  },
+  {
+    path: 'music-search',
+    loadChildren: () => import('./music/music-search/music-search.module').then( m => m.MusicSearchPageModule)
   },
   {
     path: 'music-login',
@@ -47,6 +51,8 @@ const routes: Routes = [
     path: 'music-add-band',
     loadChildren: () => import('./music/music-add-band/music-add-band.module').then( m => m.MusicAddBandPageModule)
   },
+ 
+
 
 ];
 

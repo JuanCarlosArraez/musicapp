@@ -105,10 +105,10 @@ getBands(){
 //******** Item by categoryId *********//
 //*************************************//
 
-getItemByCatId(bandsId: string){
+getItemByCatId(){
   return this.firestore.collection<any>('/music_albums', ref => ref
-  .where('music_category_name', '==', bandsId).where('Available', '==', 'si' ).where('Visible', '==', 'si' ))
-  //.orderBy("timestamp", "desc").limit(10))
+  .where('Available', '==', 'si' ).where('Visible', '==', 'si' )/* .where('music_categoryId', '==', bandsId) */
+  .orderBy("year", "desc"))/* .limit(10) */
   .snapshotChanges().pipe(
     map(actions => {  
       return actions.map(a => {

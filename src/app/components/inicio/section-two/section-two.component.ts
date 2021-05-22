@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MusicService  } from '../../../services/music.service';
 import { Observable } from 'rxjs';
 import { AngularFirestore} from '@angular/fire/firestore';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -20,15 +20,19 @@ export class SectionTwoComponent implements OnInit {
    /*  autoplay: true, */
   };
 
+
   Popular: Observable<any[]>;
   constructor(   
     private activatedRoute: ActivatedRoute,
     public  musicservice: MusicService,
     private firestore: AngularFirestore,
+    public router: Router,
     ) {
    
      }
-
+     openDetail(url,itemId){
+      this.router.navigateByUrl('/'+url+'/'+itemId);
+    }
 
 ///////////////////////////////////////////////////////////////////
 
