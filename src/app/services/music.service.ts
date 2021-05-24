@@ -107,8 +107,8 @@ getBands(){
 
 getItemByCatId(){
   return this.firestore.collection<any>('/music_albums', ref => ref
-  .where('Available', '==', 'si' ).where('Visible', '==', 'si' )/* .where('music_categoryId', '==', bandsId) */
-  .orderBy("year", "desc"))/* .limit(10) */
+  .where('Available', '==', 'si' ).where('Visible', '==', 'si' ))/* .where('music_categoryId', '==', bandsId) */
+  //.orderBy("timestamp", "desc").limit(10))
   .snapshotChanges().pipe(
     map(actions => {  
       return actions.map(a => {
@@ -142,10 +142,29 @@ getAlbums(){
 }
 
 
+/* ********************************* */
 
-
-
-
+addAddress(
+  photo: any,
+  name: string,
+  rating: number, 
+  description: string,
+  question: boolean,
+  short_description:any
+) {
+  console.log("___addBand=");
+  return  this.firestore.collection<any>('music_bands').add({
+      Available: "si",
+      Visible: "si",
+      image: photo,
+      name: name,
+      rating: rating,
+      description: description,
+      recommended: question,
+      short_description: short_description,
+      createdTime: new Date()
+  });
+}
 
 
 

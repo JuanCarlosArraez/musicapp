@@ -1,9 +1,92 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>musicAddBand</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content ion-no-padding>
 
-<ion-content>
+<!-- background -->
+<app-back></app-back>
+<!-- header -->
+<app-header></app-header>
+<br><br><br><br><br><br><br><br><br>
+<div class="borde"></div>
 
+
+<form [formGroup]="bandForm" novalidate>
+<ion-card class="addPhoto center">
+<input #userInput style="position: absolute; width: 0; height: 0; opacity: 0" type="file" formControlName="photo"
+ (change)="loadImageFromDevice1($event)" class="fileInput" accept="image/png, image/jpeg">
+<ion-icon name="cloud-upload-outline" [ngStyle]="{'transform':  'scale(5.5)'}" class=" upfile" (click)="loadImageActionSheet1(event)"></ion-icon>
+<br><br><br>
+       <h1 class="main-b-header7 upletter">Upload photo</h1>
+       <br>
+       <h1 class="main-b-header9 upsource" color="light"> {{ItemSelect}}</h1>
+</ion-card>
+
+      <ion-list lines="">   
+         <ion-item>
+                <ion-label position="stacked">Band</ion-label>
+                <ion-input  type="text"  formControlName="name" min="2" max="10" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="stacked">Rating (1-5)</ion-label>
+                <ion-input  type="number" min="1" max="5" formControlName="rating" required ></ion-input>
+            </ion-item>  
+                <ion-item>
+                  <ion-label position="stacked">Short Description</ion-label>
+                  <ion-input  type="text" min="5" max="30"  formControlName="short_description" required></ion-input>
+                </ion-item>
+                <ion-list>
+                  <ion-radio-group>
+                    <ion-list-header>
+                      <ion-label>Recommended?</ion-label>
+                    </ion-list-header>
+                    <ion-item  *ngFor="let entry of form" required>
+                      <ion-label>{{entry.val}}</ion-label>
+                      <ion-radio slot="start" value="{{entry.isChecked}}" slot="start" mode="md" color="danger"
+                       formControlName="question"
+                       [(ngModel)]="entry.isChecked"></ion-radio>
+                    </ion-item>
+                  </ion-radio-group>
+                </ion-list>
+
+                <ion-item>
+                  <ion-label position="stacked">Description</ion-label>
+                  <ion-textarea formControlName="description" min="10" max="250" required rows = "6"  placeholder="Escribe una descripción..." ></ion-textarea>
+              </ion-item>
+        </ion-list>
+  </form>
+
+    <!-- Error meassage -->
+    <p color="danger" *ngIf="!bandForm.controls.name.valid  && bandForm.controls.name.touched ">
+      <ion-text color="warning"><ion-icon name="information-circle-outline">
+      </ion-icon> 
+     ¡El campo de la etiqueta de Banda debe tener al menos 2 caracteres!
+    </ion-text>  
+    </p>
+    <p color="danger" *ngIf="!bandForm.controls.rating.valid  && bandForm.controls.rating.touched" >
+    <ion-text color="warning"><ion-icon name="information-circle-outline">
+    </ion-icon>
+    El campo de rating  debe tener al menos 1 dígito.
+    </ion-text>  
+    </p>
+    <p color="danger" *ngIf="!bandForm.controls.short_description.valid  && bandForm.controls.short_description.touched ">
+    <ion-text color="warning"><ion-icon name="information-circle-outline">
+    </ion-icon> 
+    El campo de Short Description debe tener al menos 5 caracteres.
+    </ion-text>  
+    </p>
+    <p color="danger" *ngIf="!bandForm.controls.question.valid  && bandForm.controls.question.touched">
+      <ion-text color="warning"><ion-icon name="information-circle-outline">
+      </ion-icon>
+      Debes seleccionar una opción en la sección de recomendados. 
+    </ion-text>  
+      </p>
+    <p color="danger" *ngIf="!bandForm.controls.description.valid  && bandForm.controls.description.touched">
+    <ion-text color="warning"><ion-icon name="information-circle-outline">
+    </ion-icon>
+    El campo de description debe tener al menos 10 caracteres.
+  </ion-text>  
+    </p>
+    <br><br><br>
+
+    <ion-button color="success" expand="full" [disabled]="!bandForm.valid"  (click)="addBand()" >Agregar</ion-button>
+    <ion-button color="" fill="blank" expand="full" (click)="close()">Cancelar</ion-button>
 </ion-content>
+

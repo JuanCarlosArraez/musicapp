@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment.prod';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 /* otros */
 import { MusicSearchPageModule} from './music/music-search/music-search.module';
@@ -46,6 +47,7 @@ import {  Media } from '@ionic-native/media/ngx';
     IonicModule.forRoot(), 
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AngularFireStorageModule,
     AppRoutingModule,
     MusicSearchPageModule
   ],

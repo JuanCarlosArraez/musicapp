@@ -56,12 +56,8 @@ description:""
 return  this.firestore.collection<any>('music_bands').add({
 Available: "si",
 Visible:  "si",
-
-music_categoryId: "",
-music_category_name:"",
 image: "",
 name:"",
-year: number = 1998,
 rating: number=4,
 recommended: false,
 description:"",

@@ -17,9 +17,7 @@ export class SectionDosComponent implements OnInit {
     public router: Router,
     private activatedRoute: ActivatedRoute,) { 
     }
-    openDetail(url,itemId){
-      this.router.navigateByUrl('/'+url+'/'+itemId);
-    }
+
   ngOnInit() {
     this.items = this.musicservice.getItemByCatId();
   }
