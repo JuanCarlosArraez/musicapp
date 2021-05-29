@@ -8,6 +8,9 @@ import { MusicDetailPageRoutingModule } from './music-detail-routing.module';
 
 import { MusicDetailPage } from './music-detail.page';
 
+import {BackShortComponent} from '../../components/global//back-short/back-short.component';
+import {BandDetailComponent } from "../../components/headers/band-detail/band-detail.component";
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +18,6 @@ import { MusicDetailPage } from './music-detail.page';
     IonicModule,
     MusicDetailPageRoutingModule
   ],
-  declarations: [MusicDetailPage]
+  declarations: [MusicDetailPage, BackShortComponent, BandDetailComponent]
 })
 export class MusicDetailPageModule {}

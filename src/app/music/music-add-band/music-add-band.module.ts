@@ -8,7 +8,7 @@ import { MusicAddBandPageRoutingModule } from './music-add-band-routing.module';
 
 import { MusicAddBandPage } from './music-add-band.page';
 /* global */
-import {HeaderComponent} from '../../components/global/header/header.component';
+import {AddBandComponent } from "../../components/headers/add-band/add-band.component";
 import {BackComponent} from '../../components/global/back/back.component';
 
 @NgModule({
@@ -19,6 +19,6 @@ import {BackComponent} from '../../components/global/back/back.component';
     ReactiveFormsModule,
     MusicAddBandPageRoutingModule
   ],
-  declarations: [MusicAddBandPage, HeaderComponent, BackComponent]
+  declarations: [MusicAddBandPage, AddBandComponent, BackComponent]
 })
 export class MusicAddBandPageModule {}

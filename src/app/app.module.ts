@@ -36,8 +36,6 @@ import { SectionDosComponent } from "./components/album/section-dos/section-dos.
 
 /* Plugins */
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { NativeAudio } from '@ionic-native/native-audio/ngx';
-import {  Media } from '@ionic-native/media/ngx';
 
 
 @NgModule({
@@ -54,8 +52,6 @@ import {  Media } from '@ionic-native/media/ngx';
   providers: [
     /* plugins */
     StatusBar,
-    NativeAudio,
-    Media,
     /* global */
     BackComponent,
     BackShortComponent,

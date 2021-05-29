@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 
 import { MusicService  } from '../services/music.service';
 import { Router} from '@angular/router';
-/* import { NativeAudio } from '@ionic-native/native-audio/ngx'; */
 /* import { StatusBar } from '@ionic-native/status-bar/ngx'; */
 
 @Component({
@@ -24,27 +23,9 @@ public folder: string;
     public  musicservice: MusicService,
     public router: Router,
 /*     private statusBar: StatusBar, */
- /*    private nativeAudio: NativeAudio */
-    ) {
-     
-     }
+    ) {}
 
 
-
-/*   play(){
-    this.nativeAudio.preloadSimple('uniqueId1', this.Song)
-    this.nativeAudio.play('uniqueId1')
-  }
-
-  stop(){
-  this.nativeAudio.stop('uniqueId1');
-  } */
-
-
-
-
-
-///////////////////////////////////////////////////////////////////
  async ngOnInit() {
 
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');

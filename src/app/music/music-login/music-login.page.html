@@ -1,9 +1,76 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>musicLogin</ion-title>
-  </ion-toolbar>
-</ion-header>
+  
 
-<ion-content>
 
-</ion-content>
+<ion-content class="centro">
+<div class="fondologin"></div>
+   
+  
+<div class="center"><ion-icon name="planet" color="light" class="imagenintro"></ion-icon></div>
+  
+<div class="card">
+<ion-card class="card2" color="">
+<ion-card-content>
+<br>
+  
+<h1 class="ion-text-center"> ¡Hola! </h1>
+<div color="light">
+<form> 
+<ion-item lines="full">
+<ion-label position="floating" >Email</ion-label>
+<ion-input type="email" #email required="true" maxlength="40" autocomplete></ion-input>
+</ion-item>
+<ion-item lines="full">
+<ion-label position="floating">Contraseña</ion-label>
+<ion-input type="password" #password required="true" maxlength="10" minlength="6"></ion-input>
+</ion-item>
+<br>
+<br>
+
+
+<ion-row >
+<ion-col>
+<ion-button
+class="center"
+ type="submit"
+(click)="onLogin(email, password)" 
+shape="round"
+color="light"
+mode="ios">Login</ion-button>
+</ion-col>
+</ion-row> 
+<br>
+</form>
+</div>
+</ion-card-content>
+</ion-card>
+</div>
+          
+  
+<ion-row>
+<ion-col>
+<p class="ion-text-center">
+<a routerLink="/music-forgot-password" color="dark" class="nopuedesentrar"> ¿No puedes entrar? </a>
+</p>
+</ion-col>
+</ion-row>
+  
+
+<div  *ngIf="user$  | async as user; else noregister "></div>
+
+<ng-template #noregister>
+<ion-row>
+<ion-col>
+<ion-button
+class="ion-text-center" 
+routerLink="/music-register"
+ shape="round"
+expand="block"
+color="light"
+mode="ios">¡Regístrate!</ion-button>
+ </ion-col>
+</ion-row>
+</ng-template>
+
+
+
+  </ion-content>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore,AngularFirestoreCollection,AngularFirestoreDocument} from '@angular/fire/firestore';
+import { AngularFirestore} from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -11,74 +11,13 @@ export class MusicService {
    { }
 
 
-  //*******************************//
-//******** Search Item *********//
-//******************************//
-
-searchItem(){
-  console.log("called searchItem");
-  return this.firestore.collection<any>('music_popular', ref => ref
-  .where('Visible', '==', 'si' )).snapshotChanges().pipe(
-    map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data();
-        // get id from firebase metadata 
-        const id = a.payload.doc.id; 
-        return { id, ...data };
-      });
-    })
-  );
-}
-
-
-//************************//
-//****** PopularSong ******//
-//************************//
-
-getPopularSong(){
-  console.log("start getPopularSong");
-  return this.firestore.collection<any>('music_popularsong', ref => ref
-  .where('Visible', '==', 'si' )).snapshotChanges().pipe(
-    map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data();
-        // get id from firebase metadata 
-        const id = a.payload.doc.id; 
-        return { id, ...data };
-      });
-    })
-  );
-
-}
-
-
-//************************//
-//****** Playlists ******//
-//************************//
-
-
-getPlaylists(){
-  console.log("start getPlaylists");
-  return this.firestore.collection<any>('music_playlists', ref => ref
-  .where('Visible', '==', 'si' )).snapshotChanges().pipe(
-    map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data();
-        // get id from firebase metadata 
-        const id = a.payload.doc.id; 
-        return { id, ...data };
-      });
-    })
-  );
-
-}
 
 //******************************//
 //****** Get item detail  ******//
 //******************************//
 
 getItemDetail(itemId: string){
-  return this.firestore.doc<any>('music_playlists/'+itemId).valueChanges();
+  return this.firestore.doc<any>('music_bands/'+itemId).valueChanges();
 }
 
 
@@ -99,6 +38,20 @@ getBands(){
       });
     })
   );
+}
+getBandsRecommended(){
+  console.log("start getBandsRecommended");
+  return this.firestore.collection<any>('music_bands', ref => ref
+  .where('Visible', '==', 'si' ).where('recommended', '==', true )).snapshotChanges().pipe(
+    map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data();
+        // get id from firebase metadata 
+        const id = a.payload.doc.id; 
+        return { id, ...data };
+      });
+    })
+  );
 
 }
 //*************************************//
@@ -107,7 +60,8 @@ getBands(){
 
 getItemByCatId(){
   return this.firestore.collection<any>('/music_albums', ref => ref
-  .where('Available', '==', 'si' ).where('Visible', '==', 'si' ))/* .where('music_categoryId', '==', bandsId) */
+  .where('Available', '==', 'si' )
+  .where('Visible', '==', 'si' ).orderBy("music_category_name", "asc"))
   //.orderBy("timestamp", "desc").limit(10))
   .snapshotChanges().pipe(
     map(actions => {  
@@ -138,18 +92,33 @@ getAlbums(){
       });
     })
   );
+}
 
+getAlbumsRecommended(){
+  console.log("start getAlbumsRecommended");
+  return this.firestore.collection<any>('music_albums', ref => ref
+  .where('Visible', '==', 'si' ).where('front', '==', true )).snapshotChanges().pipe(
+    map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data();
+        // get id from firebase metadata 
+        const id = a.payload.doc.id; 
+        return { id, ...data };
+      });
+    })
+  );
 }
 
 
 /* ********************************* */
 
-addAddress(
+addedBand(
   photo: any,
+  music: any,
   name: string,
   rating: number, 
   description: string,
-  question: boolean,
+  question: any,
   short_description:any
 ) {
   console.log("___addBand=");
@@ -158,6 +127,7 @@ addAddress(
       Visible: "si",
       image: photo,
       name: name,
+      music: music,
       rating: rating,
       description: description,
       recommended: question,

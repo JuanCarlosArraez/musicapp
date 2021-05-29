@@ -10,16 +10,23 @@ import { ActivatedRoute, Router} from '@angular/router';
 })
 export class SectionDosComponent implements OnInit {
 
-  public items: Observable<any[]>;
+  public Items: Observable<any[]>;
+slideOption = {
+    slidesPerView: 'auto',
+    grabCursor: true,
+   /*  autoplay: true, */
+  };
 
   constructor(
     public  musicservice: MusicService,
-    public router: Router,
-    private activatedRoute: ActivatedRoute,) { 
+    public router: Router) { 
     }
 
+    openDetail(url,itemId){
+      this.router.navigateByUrl('/'+url+'/'+itemId);
+    }
   ngOnInit() {
-    this.items = this.musicservice.getItemByCatId();
+    this.Items = this.musicservice.getItemByCatId();
   }
 
 }

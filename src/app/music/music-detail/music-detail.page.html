@@ -1,9 +1,58 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>musicDetail</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
 
+<app-back-short></app-back-short>
+<!-- header -->
+<app-band-detail></app-band-detail>
+
+
+
+<ion-grid fixed class="ion-no-padding">
+
+<div class="detail-header fade-out" [ngStyle]="{'background-image': 'url(' + itemArray.image + ')'}"></div>
+<div class="margin-top-10">
+  <ion-item lines="none">
+      <ion-label  text-wrap>
+          <h1 class="food_header1 detail-name tracking-in-expand">{{itemArray.name}}</h1>
+          <h2 class="food_header3 detail-price "> {{itemArray.short_description}}</h2>
+      </ion-label>
+      <div slot="end">
+          <ion-icon  style="font-size: 18px !important;" color="danger" *ngFor="let i of [0,1,2,3,4]" [name]="i < itemArray.rating  ? 'star' : 'star-outline'"></ion-icon>
+      </div>
+  </ion-item>  
+</div>
+
+<ion-row>
+  <ion-col size-lg="8" size-md="8" size-sm="12" size="12">
+      <!--*********** Description ***********-->
+      <div class="ion-padding fade-out">
+        <p class="margin-bottom-3">
+            {{itemArray.description}}
+        </p>
+      </div>
+  </ion-col>
+</ion-row>
+
+<h1 class="letterinicio lettercarrousel">ALBUMS</h1>
+<br>
+<ion-slides class="swiper-container fade-in" pager= false
+[options]="slideOption" #slidesOne style="margin-top:-40px !important;">
+
+
+<ion-slide  (click)="openDetail('music-album-detail',album.id)"   *ngFor="let album of Albums | async">
+  <div *ngIf="album.music_categoryId == itemArray.Control_Id">
+  <ion-card class="music-main-h-card music-card0 slide-left fade-in-left"  >
+  <div class="music-card0-bg ion-text-uppercase" [ngStyle]="{'background-image': 'url(' + album.image+ ')'}" >
+  <h2 class="card2-title">   <br>{{album.name}}</h2>                           
+  </div>
+  </ion-card>
+  </div>
+  </ion-slide>
+</ion-slides>
+
+<!-- <div *ngIf="">
+
+</div> -->
+
+
+</ion-grid>
 </ion-content>

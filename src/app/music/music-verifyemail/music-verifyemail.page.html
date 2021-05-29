@@ -1,9 +1,50 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>musicVerifyemail</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="center"  *ngIf="user$ | async as user">
+<div class="fondologin"></div>
+  
+<br>
+<br>
+<br>
+<div class="center"><ion-icon name="planet" color="light" class="imagenintro"></ion-icon></div>
+  
+<div class="card">
+<ion-card class="card2">
+<ion-card-content>
+<br>
+  
+<div>
+<div class="center"><img src="assets/img/check-circle.png" alt="" style="width: 80px; height: 80px;"></div>
+<ion-row>
+<ion-col>
+<h2 class="ion-text-center">¡Gracias por registrarte!</h2>
+<br>
+<p class="ion-text-justify">Hemos enviado un correo electrónico de confirmación a <strong>{{user.email}}</strong>
+    Revise su correo electrónico y haga clic en el enlace para verificar su dirección de correo electrónico.</p></ion-col>
+</ion-row>
+<ion-row>
+<ion-col>
 
-<ion-content>
+<ion-button 
+mode="ios"
+type="submit" 
+color="light" 
+expand="block" (click)="onSendEmail()">
+Reenviar  verificación
+</ion-button>
+</ion-col>
+</ion-row>
+</div>
+</ion-card-content>
+</ion-card>
+</div>
+<br>
+     
 
+<ion-button
+class="ion-text-center" 
+routerLink="/login"
+expand="block"
+color="light"
+ mode="ios">Login
+</ion-button>
+   
 </ion-content>

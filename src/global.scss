@@ -427,7 +427,79 @@ p{
     align-items: center;
     justify-content: center;
   }
+
+
+ //********************************************//  
+/*********LOGIN, REGISTER, AUTH, FORGOT *******/
+ //********************************************//
+
+.fondologin{
+background-color: var(--ion-color-personalize);
+position: absolute;
+height: 70%;
+width: 100%;
+text-align: center;
+}
+.ellipsis{
+position: absolute;
+text-align: end;
+right: 3%;
+top: 4%;
+transform: scale(1.1);
+}
+
+.card{
+padding-left: 15px;
+padding-right: 15px;
+margin: auto;
+z-index: 10;
+}
   
+.card2{
+padding-left: 10px;
+padding-right: 10px;
+border-radius: 15px;
+ z-index: 10;
+
+}
+.nopuedesentrar{
+text-decoration: none;
+text-transform: none;
+text-align: center;
+color: black !important;
+}  
+.imagenintro{
+  position: relative;
+  height: 270px;
+  width: 260px;
+  text-align: center;
+  text-decoration: none;
+  outline: none !important;
+  z-index: 1000 !important;
+  }
+  
+.alreadyaccount{
+text-decoration: none;
+text-transform: none;
+text-align: center;
+color: black !important;
+}
+
+.eltoast{
+  --border-radius: 10px 10px 10px 10px;
+  --height: 70px;
+ font-family:  Roboto Condensed;
+ text-align: start;
+ }
+ .eltoastregister{
+  --border-radius: 10px 10px 10px 10px;
+  --height: 45px;
+ font-family:  Roboto Condensed;
+ text-align: center;
+ }
+ .lettercarrousel{
+  margin-left: 3%;
+}
   //********************************************//
 //******** music App styles **********//
 //********************************************//
@@ -834,7 +906,7 @@ p{
 .music-card2  {
  position: relative;
  width: 250px !important;
- height:180px !important;
+ height:190px !important;
  margin-top: 20px;
  float: right !important;
  background-color: #dddddd;
@@ -854,7 +926,7 @@ p{
  }
  .music-card2-bg {
      position: relative;
-     height: 180px;
+     height: 190px;
  
      -webkit-background-size: cover;
      -moz-background-size: cover;
@@ -1312,8 +1384,8 @@ ion-menu-button {
   /* /////////////////////////////////////// */
   
   .fade-in {
-      -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-              animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+      -webkit-animation: fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+              animation: fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   }
   @-webkit-keyframes fade-in {
     0% {

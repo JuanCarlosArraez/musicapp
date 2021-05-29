@@ -19,14 +19,14 @@ export class SectionThreeComponent implements OnInit {
     ) { }
 
   getPlaylists(){
-    this.Playlists = this.musicservice.getPlaylists();
+    this.Playlists = this.musicservice.getBands();
     }
   
     openDetail(url,itemId){
       this.router.navigateByUrl('/'+url+'/'+itemId);
     }  
     getSong(){
-      this.musicservice.getPlaylists().subscribe(x => {
+      this.musicservice.getBands().subscribe(x => {
       x.map(y => {
       this.Song=  y.music 
      });

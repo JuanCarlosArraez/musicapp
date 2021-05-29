@@ -29,7 +29,7 @@ export class SectionOneComponent implements OnInit {
     public router: Router,) { }
 
   getRockbands(){
-    this.Rockbands = this.musicservice.getBands();
+    this.Rockbands = this.musicservice.getBandsRecommended();
   }
   openDetail(url,itemId){
     this.router.navigateByUrl('/'+url+'/'+itemId);

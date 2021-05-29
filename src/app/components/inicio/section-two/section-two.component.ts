@@ -23,7 +23,6 @@ export class SectionTwoComponent implements OnInit {
 
   Popular: Observable<any[]>;
   constructor(   
-    private activatedRoute: ActivatedRoute,
     public  musicservice: MusicService,
     private firestore: AngularFirestore,
     public router: Router,
@@ -84,7 +83,7 @@ short_description:""
 }
 
   getPopularSong(){
-    this.Popular = this.musicservice.getPopularSong();
+    this.Popular = this.musicservice.getAlbumsRecommended();
   }
   
   async ngOnInit() {
