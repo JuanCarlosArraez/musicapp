@@ -4,6 +4,35 @@
 <app-back-short></app-back-short>
 <!-- header -->
 <app-album-detail></app-album-detail>
-<br><br><br><br><br><br><br><br><br>
 
+<ion-grid fixed class="ion-no-padding">
+
+    <div class="detail-header fade-out" [ngStyle]="{'background-image': 'url(' + itemArray.image + ')'}">
+    <!-- <ion-img [src]=" itemArray.image"></ion-img> -->
+    </div>
+    <div class="margin-top-10">
+      <ion-item lines="none">
+          <ion-label  text-wrap>
+              <h1 class="food_header1 detail-name tracking-in-expand">{{itemArray.name}}</h1>
+              <h2 class="food_header3 detail-price "> {{itemArray.short_description}}</h2>
+          </ion-label>
+          <div slot="end">
+              <ion-icon  style="font-size: 18px !important;" color="danger" *ngFor="let i of [0,1,2,3,4]" [name]="i < itemArray.rating  ? 'star' : 'star-outline'"></ion-icon>
+          </div>
+      </ion-item>  
+    </div>
+    
+    <ion-row>
+      <ion-col size-lg="8" size-md="8" size-sm="12" size="12">
+          <!--*********** Description ***********-->
+          <div class="ion-padding fade-out">
+            <p class="margin-bottom-3">
+                {{itemArray.description}}
+            </p>
+          </div>
+      </ion-col>
+    </ion-row>
+
+
+</ion-grid>
 </ion-content>

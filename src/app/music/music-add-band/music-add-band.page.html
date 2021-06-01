@@ -14,7 +14,7 @@
 (change)="loadImageFromDevice1($event)" class="fileInput" accept="image/*"> 
 
 <ion-icon name="cloud-upload-outline" [ngStyle]="{'transform':  'scale(5.5)'}" 
-class=" upfile" (click)="loadImageActionSheet1(event)">
+class=" upfile" (click)="loadImageActionSheet1($event)">
 </ion-icon>
        <h1 class="main-b-header7 upletter">Upload photo</h1>
        <br>
@@ -30,7 +30,7 @@ class=" upfile" (click)="loadImageActionSheet1(event)">
          <input #musicInput  type="file" formControlName="music"
          (change)="loadImageFromDevice2($event)" class="fileInput" accept=".mpeg,audio/*">
 
-         <ion-button mode="ios" color="light" style="margin-left: 3%;" (click)="loadImageActionSheet2(event)" >
+         <ion-button mode="ios" color="light" style="margin-left: 3%;" (click)="loadImageActionSheet2($event)" >
           
          <div *ngIf="!MusicSelect ;else song">
          <ion-icon name="musical-note-outline" [ngStyle]="{'transform':  'scale(1.5)'}" slot="start" >

@@ -131,7 +131,7 @@ AlbumDetailComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<ion-content>\n\n<app-back-short></app-back-short>\n<!-- header -->\n<app-album-detail></app-album-detail>\n<br><br><br><br><br><br><br><br><br>\n\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<ion-content>\n\n<app-back-short></app-back-short>\n<!-- header -->\n<app-album-detail></app-album-detail>\n\n<ion-grid fixed class=\"ion-no-padding\">\n\n    <div class=\"detail-header fade-out\" [ngStyle]=\"{'background-image': 'url(' + itemArray.image + ')'}\">\n    <!-- <ion-img [src]=\" itemArray.image\"></ion-img> -->\n    </div>\n    <div class=\"margin-top-10\">\n      <ion-item lines=\"none\">\n          <ion-label  text-wrap>\n              <h1 class=\"food_header1 detail-name tracking-in-expand\">{{itemArray.name}}</h1>\n              <h2 class=\"food_header3 detail-price \"> {{itemArray.short_description}}</h2>\n          </ion-label>\n          <div slot=\"end\">\n              <ion-icon  style=\"font-size: 18px !important;\" color=\"danger\" *ngFor=\"let i of [0,1,2,3,4]\" [name]=\"i < itemArray.rating  ? 'star' : 'star-outline'\"></ion-icon>\n          </div>\n      </ion-item>  \n    </div>\n    \n    <ion-row>\n      <ion-col size-lg=\"8\" size-md=\"8\" size-sm=\"12\" size=\"12\">\n          <!--*********** Description ***********-->\n          <div class=\"ion-padding fade-out\">\n            <p class=\"margin-bottom-3\">\n                {{itemArray.description}}\n            </p>\n          </div>\n      </ion-col>\n    </ion-row>\n\n\n</ion-grid>\n</ion-content>\n");
 
 /***/ }),
 
@@ -208,16 +208,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_music_album_detail_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./music-album-detail.page.html */ "kZ1V");
 /* harmony import */ var _music_album_detail_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./music-album-detail.page.scss */ "/OuX");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _services_music_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/music.service */ "Ie7a");
+
+
 
 
 
 
 let MusicAlbumDetailPage = class MusicAlbumDetailPage {
-    constructor() { }
+    constructor(musicservice, activatedRoute, router) {
+        this.musicservice = musicservice;
+        this.activatedRoute = activatedRoute;
+        this.router = router;
+        this.itemArray = [];
+        this.itemId = this.activatedRoute.snapshot.paramMap.get('albumId');
+    }
     ngOnInit() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this.item = yield this.musicservice.getAlbumsDetail(this.itemId);
+            this.itemSubscribe = this.item.subscribe(res => {
+                this.itemArray = res;
+            });
+            console.log(this.itemArray);
+        });
     }
 };
-MusicAlbumDetailPage.ctorParameters = () => [];
+MusicAlbumDetailPage.ctorParameters = () => [
+    { type: _services_music_service__WEBPACK_IMPORTED_MODULE_5__["MusicService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
+];
 MusicAlbumDetailPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
         selector: 'app-music-album-detail',

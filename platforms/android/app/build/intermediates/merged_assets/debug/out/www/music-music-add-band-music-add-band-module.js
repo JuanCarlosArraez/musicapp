@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".addPhoto {\n  z-index: 2;\n  height: 15em;\n  margin-top: -150px;\n}\n\n.fileInput {\n  position: absolute;\n  width: 0;\n  height: 0;\n  opacity: 0;\n}\n\n.upfile {\n  position: absolute;\n}\n\n.upletter {\n  margin-top: 110px;\n  position: absolute;\n}\n\n.upsource {\n  margin-top: 150px;\n  position: absolute;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxtdXNpYy1hZGQtYmFuZC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxVQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0FBQ0o7O0FBQ0E7RUFDSSxrQkFBQTtFQUNBLFFBQUE7RUFDQSxTQUFBO0VBQ0EsVUFBQTtBQUVKOztBQUNBO0VBQ0ksa0JBQUE7QUFFSjs7QUFDQTtFQUNJLGlCQUFBO0VBQ0Esa0JBQUE7QUFFSjs7QUFDQTtFQUNJLGlCQUFBO0VBQ0Esa0JBQUE7QUFFSiIsImZpbGUiOiJtdXNpYy1hZGQtYmFuZC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYWRkUGhvdG97XHJcbiAgICB6LWluZGV4OiAyO1xyXG4gICAgaGVpZ2h0OiAxNWVtO1xyXG4gICAgbWFyZ2luLXRvcDogLTE1MHB4O1xyXG59XHJcbi5maWxlSW5wdXR7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7IFxyXG4gICAgd2lkdGg6IDA7IFxyXG4gICAgaGVpZ2h0OiAwOyBcclxuICAgIG9wYWNpdHk6IDBcclxufVxyXG5cclxuLnVwZmlsZXtcclxuICAgIHBvc2l0aW9uOmFic29sdXRlO1xyXG59XHJcblxyXG4udXBsZXR0ZXJ7XHJcbiAgICBtYXJnaW4tdG9wOiAxMTBweDtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxufVxyXG5cclxuLnVwc291cmNle1xyXG4gICAgbWFyZ2luLXRvcDogMTUwcHg7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtdXNpYy1hZGQtYmFuZC5wYWdlLnNjc3MifQ== */");
 
 /***/ }),
 
@@ -329,73 +329,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-content ion-no-padding>\r\n\r\n<!-- background -->\r\n<app-back></app-back>\r\n<!-- header -->\r\n<app-add-band></app-add-band>\r\n<br><br><br><br><br><br><br><br><br>\r\n<div class=\"borde\"></div>\r\n\r\n\r\n<form [formGroup]=\"bandForm\" novalidate>\r\n<ion-card class=\"addPhoto center\" *ngIf=\"!ItemSelect; else image\">\r\n<input #userInput  type=\"file\" formControlName=\"photo\"\r\n(change)=\"loadImageFromDevice1($event)\" class=\"fileInput\" accept=\"image/*\"> \r\n\r\n<ion-icon name=\"cloud-upload-outline\" [ngStyle]=\"{'transform':  'scale(5.5)'}\" \r\nclass=\" upfile\" (click)=\"loadImageActionSheet1(event)\">\r\n</ion-icon>\r\n       <h1 class=\"main-b-header7 upletter\">Upload photo</h1>\r\n       <br>\r\n       <h1 class=\"main-b-header9 upsource\" color=\"light\"> {{ItemSelect}}</h1>\r\n</ion-card>\r\n\r\n<ng-template #image>\r\n<ion-card class=\"addPhoto center\">\r\n<img [src]=\"newImage\" alt=\"\">\r\n</ion-card>\r\n</ng-template>\r\n\r\n         <input #musicInput  type=\"file\" formControlName=\"music\"\r\n         (change)=\"loadImageFromDevice2($event)\" class=\"fileInput\" accept=\".mpeg,audio/*\">\r\n\r\n         <ion-button mode=\"ios\" color=\"light\" style=\"margin-left: 3%;\" (click)=\"loadImageActionSheet2(event)\" >\r\n          \r\n         <div *ngIf=\"!MusicSelect ;else song\">\r\n         <ion-icon name=\"musical-note-outline\" [ngStyle]=\"{'transform':  'scale(1.5)'}\" slot=\"start\" >\r\n         </ion-icon>          \r\n         Select Music\r\n         </div>\r\n         <ng-template #song>\r\n         Selected    &nbsp;  &nbsp;   \r\n         <ion-icon name=\"checkmark-circle\" [ngStyle]=\"{'transform':  'scale(1.5)'}\" color=\"success\">\r\n         </ion-icon>\r\n         </ng-template>\r\n         </ion-button>\r\n         <br>\r\n         <br>\r\n      <ion-list lines=\"\">   \r\n         <ion-item>\r\n         <ion-label position=\"stacked\">Band</ion-label>\r\n         <ion-input  type=\"text\"  formControlName=\"name\" min=\"2\" max=\"10\" required></ion-input>\r\n         </ion-item>\r\n         <ion-item>\r\n         <ion-label position=\"stacked\">Rating (1-5)</ion-label>\r\n         <ion-input  type=\"number\" min=\"1\" max=\"5\" formControlName=\"rating\" required ></ion-input>\r\n         </ion-item>  \r\n         <ion-item>\r\n         <ion-label position=\"stacked\">Short Description</ion-label>\r\n         <ion-input  type=\"text\" min=\"5\" max=\"30\"  formControlName=\"short_description\" required></ion-input>\r\n         </ion-item>\r\n         <ion-list>\r\n         <ion-radio-group  value=\"\" (ionChange)=\"getvalueChecked($event)\" formControlName=\"question\">\r\n         <ion-list-header>\r\n         <ion-label>Recommended?</ion-label>\r\n         </ion-list-header>\r\n         <ion-item lines=\"none\">\r\n         <ion-label>Yes</ion-label>\r\n         <ion-radio slot=\"start\" value=\"true\" slot=\"start\" mode=\"md\" color=\"danger\"></ion-radio>\r\n         </ion-item>\r\n         <ion-item lines=\"none\">\r\n         <ion-label>No</ion-label>\r\n         <ion-radio slot=\"start\" value=\"false\" slot=\"start\" mode=\"md\" color=\"danger\"></ion-radio>\r\n         </ion-item>\r\n         </ion-radio-group>\r\n         </ion-list>\r\n         <ion-item>\r\n         <ion-label position=\"stacked\">Description</ion-label>\r\n         <ion-textarea formControlName=\"description\" min=\"10\" max=\"250\" required rows = \"6\"  placeholder=\"Write a description...\" ></ion-textarea>\r\n         </ion-item>\r\n         </ion-list>\r\n  </form>\r\n\r\n\r\n    <!-- Error meassage -->\r\n    <p color=\"danger\" *ngIf=\"!bandForm.controls.name.valid  && bandForm.controls.name.touched \">\r\n    <ion-text color=\"warning\"><ion-icon name=\"information-circle-outline\">\r\n    </ion-icon> \r\n    ¡El campo de la etiqueta de Banda debe tener al menos 2 caracteres!\r\n    </ion-text>  \r\n    </p>\r\n    <p color=\"danger\" *ngIf=\"!bandForm.controls.rating.valid  && bandForm.controls.rating.touched\" >\r\n    <ion-text color=\"warning\"><ion-icon name=\"information-circle-outline\">\r\n    </ion-icon>\r\n    El campo de rating  debe tener al menos 1 dígito.\r\n    </ion-text>  \r\n    </p>\r\n    <p color=\"danger\" *ngIf=\"!bandForm.controls.short_description.valid  && bandForm.controls.short_description.touched \">\r\n    <ion-text color=\"warning\"><ion-icon name=\"information-circle-outline\">\r\n    </ion-icon> \r\n    El campo de Short Description debe tener al menos 5 caracteres.\r\n    </ion-text>  \r\n    </p>\r\n    <p color=\"danger\" *ngIf=\"!bandForm.controls.question.valid  && bandForm.controls.question.touched\">\r\n    <ion-text color=\"warning\"><ion-icon name=\"information-circle-outline\">\r\n    </ion-icon>\r\n    Debes seleccionar una opción en la sección de recomendados. \r\n    </ion-text>  \r\n    </p>\r\n    <p color=\"danger\" *ngIf=\"!bandForm.controls.description.valid  && bandForm.controls.description.touched\">\r\n    <ion-text color=\"warning\"><ion-icon name=\"information-circle-outline\">\r\n    </ion-icon>\r\n    El campo de description debe tener al menos 10 caracteres.\r\n    </ion-text>  \r\n    </p>\r\n    <br><br><br>\r\n\r\n    <ion-button color=\"danger\" expand=\"full\" [disabled]=\"!bandForm.valid && !MusicSelect\"  (click)=\"addBand()\" >Add</ion-button>\r\n    <ion-button color=\"\" fill=\"blank\" expand=\"full\" (click)=\"close()\">Cancelar</ion-button>\r\n</ion-content>\r\n\r\n");
-
-/***/ }),
-
-/***/ "iPno":
-/*!*************************************************!*\
-  !*** ./src/app/services/firestorage.service.ts ***!
-  \*************************************************/
-/*! exports provided: FirestorageService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirestorageService", function() { return FirestorageService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/storage */ "Vaw3");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
-
-
-
-
-let FirestorageService = class FirestorageService {
-    constructor(storage) {
-        this.storage = storage;
-    }
-    uploadImage(file, path, nombre) {
-        return new Promise(resolve => {
-            const filePath = path + '/' + nombre;
-            const ref = this.storage.ref(filePath);
-            const task = ref.put(file);
-            task.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["finalize"])(() => {
-                ref.getDownloadURL().subscribe(res => {
-                    const downloadURL = res;
-                    resolve(downloadURL);
-                    return;
-                });
-            }))
-                .subscribe();
-        });
-    }
-    uploadMusic(file, path, nombre) {
-        return new Promise(resolve => {
-            const filePath = path + '/' + nombre;
-            const ref = this.storage.ref(filePath);
-            const task = ref.put(file);
-            task.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["finalize"])(() => {
-                ref.getDownloadURL().subscribe(res => {
-                    const downloadURL = res;
-                    resolve(downloadURL);
-                    return;
-                });
-            }))
-                .subscribe();
-        });
-    }
-};
-FirestorageService.ctorParameters = () => [
-    { type: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"] }
-];
-FirestorageService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    })
-], FirestorageService);
-
-
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content ion-no-padding>\r\n\r\n<!-- background -->\r\n<app-back></app-back>\r\n<!-- header -->\r\n<app-add-band></app-add-band>\r\n<br><br><br><br><br><br><br><br><br>\r\n<div class=\"borde\"></div>\r\n\r\n\r\n<form [formGroup]=\"bandForm\" novalidate>\r\n<ion-card class=\"addPhoto center\" *ngIf=\"!ItemSelect; else image\">\r\n<input #userInput  type=\"file\" formControlName=\"photo\"\r\n(change)=\"loadImageFromDevice1($event)\" class=\"fileInput\" accept=\"image/*\"> \r\n\r\n<ion-icon name=\"cloud-upload-outline\" [ngStyle]=\"{'transform':  'scale(5.5)'}\" \r\nclass=\" upfile\" (click)=\"loadImageActionSheet1($event)\">\r\n</ion-icon>\r\n       <h1 class=\"main-b-header7 upletter\">Upload photo</h1>\r\n       <br>\r\n       <h1 class=\"main-b-header9 upsource\" color=\"light\"> {{ItemSelect}}</h1>\r\n</ion-card>\r\n\r\n<ng-template #image>\r\n<ion-card class=\"addPhoto center\">\r\n<img [src]=\"newImage\" alt=\"\">\r\n</ion-card>\r\n</ng-template>\r\n\r\n         <input #musicInput  type=\"file\" formControlName=\"music\"\r\n         (change)=\"loadImageFromDevice2($event)\" class=\"fileInput\" accept=\".mpeg,audio/*\">\r\n\r\n         <ion-button mode=\"ios\" color=\"light\" style=\"margin-left: 3%;\" (click)=\"loadImageActionSheet2($event)\" >\r\n          \r\n         <div *ngIf=\"!MusicSelect ;else song\">\r\n         <ion-icon name=\"musical-note-outline\" [ngStyle]=\"{'transform':  'scale(1.5)'}\" slot=\"start\" >\r\n         </ion-icon>          \r\n         Select Music\r\n         </div>\r\n         <ng-template #song>\r\n         Selected    &nbsp;  &nbsp;   \r\n         <ion-icon name=\"checkmark-circle\" [ngStyle]=\"{'transform':  'scale(1.5)'}\" color=\"success\">\r\n         </ion-icon>\r\n         </ng-template>\r\n         </ion-button>\r\n         <br>\r\n         <br>\r\n      <ion-list lines=\"\">   \r\n         <ion-item>\r\n         <ion-label position=\"stacked\">Band</ion-label>\r\n         <ion-input  type=\"text\"  formControlName=\"name\" min=\"2\" max=\"10\" required></ion-input>\r\n         </ion-item>\r\n         <ion-item>\r\n         <ion-label position=\"stacked\">Rating (1-5)</ion-label>\r\n         <ion-input  type=\"number\" min=\"1\" max=\"5\" formControlName=\"rating\" required ></ion-input>\r\n         </ion-item>  \r\n         <ion-item>\r\n         <ion-label position=\"stacked\">Short Description</ion-label>\r\n         <ion-input  type=\"text\" min=\"5\" max=\"30\"  formControlName=\"short_description\" required></ion-input>\r\n         </ion-item>\r\n         <ion-list>\r\n         <ion-radio-group  value=\"\" (ionChange)=\"getvalueChecked($event)\" formControlName=\"question\">\r\n         <ion-list-header>\r\n         <ion-label>Recommended?</ion-label>\r\n         </ion-list-header>\r\n         <ion-item lines=\"none\">\r\n         <ion-label>Yes</ion-label>\r\n         <ion-radio slot=\"start\" value=\"true\" slot=\"start\" mode=\"md\" color=\"danger\"></ion-radio>\r\n         </ion-item>\r\n         <ion-item lines=\"none\">\r\n         <ion-label>No</ion-label>\r\n         <ion-radio slot=\"start\" value=\"false\" slot=\"start\" mode=\"md\" color=\"danger\"></ion-radio>\r\n         </ion-item>\r\n         </ion-radio-group>\r\n         </ion-list>\r\n         <ion-item>\r\n         <ion-label position=\"stacked\">Description</ion-label>\r\n         <ion-textarea formControlName=\"description\" min=\"10\" max=\"250\" required rows = \"6\"  placeholder=\"Write a description...\" ></ion-textarea>\r\n         </ion-item>\r\n         </ion-list>\r\n  </form>\r\n\r\n\r\n    <!-- Error meassage -->\r\n    <p color=\"danger\" *ngIf=\"!bandForm.controls.name.valid  && bandForm.controls.name.touched \">\r\n    <ion-text color=\"warning\"><ion-icon name=\"information-circle-outline\">\r\n    </ion-icon> \r\n    Band tag field must be at least 2 characters long!\r\n    </ion-text>  \r\n    </p>\r\n    <p color=\"danger\" *ngIf=\"!bandForm.controls.rating.valid  && bandForm.controls.rating.touched\" >\r\n    <ion-text color=\"warning\"><ion-icon name=\"information-circle-outline\">\r\n    </ion-icon>\r\n    The rating field must have at least 1 digit.\r\n    </ion-text>  \r\n    </p>\r\n    <p color=\"danger\" *ngIf=\"!bandForm.controls.short_description.valid  && bandForm.controls.short_description.touched \">\r\n    <ion-text color=\"warning\"><ion-icon name=\"information-circle-outline\">\r\n    </ion-icon> \r\n    The Short Description field must be at least 5 characters long.\r\n    </ion-text>  \r\n    </p>\r\n    <p color=\"danger\" *ngIf=\"!bandForm.controls.question.valid  && bandForm.controls.question.touched\">\r\n    <ion-text color=\"warning\"><ion-icon name=\"information-circle-outline\">\r\n    </ion-icon>\r\n    You must select an option in the recommended section.\r\n    </ion-text>  \r\n    </p>\r\n    <p color=\"danger\" *ngIf=\"!bandForm.controls.description.valid  && bandForm.controls.description.touched\">\r\n    <ion-text color=\"warning\"><ion-icon name=\"information-circle-outline\">\r\n    </ion-icon>\r\n    The description field must be at least 10 characters long.\r\n    </ion-text>  \r\n    </p>\r\n    <br><br><br>\r\n\r\n    <ion-button color=\"danger\" expand=\"full\" [disabled]=\"!bandForm.valid && !MusicSelect\"  (click)=\"addBand()\" >Add</ion-button>\r\n    <ion-button color=\"\" fill=\"blank\" expand=\"full\" (click)=\"close()\">Cancel</ion-button>\r\n</ion-content>\r\n\r\n");
 
 /***/ }),
 

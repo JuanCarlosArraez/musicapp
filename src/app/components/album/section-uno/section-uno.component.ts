@@ -31,7 +31,7 @@ export class SectionUnoComponent implements OnInit {
     this.Albums = this.musicservice.getAlbums();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getAlbum();
   }
 

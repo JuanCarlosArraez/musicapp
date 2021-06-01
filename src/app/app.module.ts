@@ -34,6 +34,8 @@ import { HeaderAlbumComponent } from "./components/album/header-album/header-alb
 import { SectionUnoComponent } from "./components/album/section-uno/section-uno.component";
 import { SectionDosComponent } from "./components/album/section-dos/section-dos.component";
 
+/* Edit Detail */
+import {EditBandComponent } from "./components/headers/edit-band/edit-band.component";
 /* Plugins */
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
@@ -67,6 +69,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
     HeaderAlbumComponent,
     SectionUnoComponent,
     SectionDosComponent,
+    /* Detail Edit  */
+    EditBandComponent,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy, }],
   bootstrap: [AppComponent],
 })

@@ -20,6 +20,9 @@ getItemDetail(itemId: string){
   return this.firestore.doc<any>('music_bands/'+itemId).valueChanges();
 }
 
+getAlbumsDetail(albumId: string){
+  return this.firestore.doc<any>('music_albums/'+albumId).valueChanges();
+}
 
 //******************************//
 //****** Get Bands  ************//
@@ -61,7 +64,7 @@ getBandsRecommended(){
 getItemByCatId(){
   return this.firestore.collection<any>('/music_albums', ref => ref
   .where('Available', '==', 'si' )
-  .where('Visible', '==', 'si' ).orderBy("music_category_name", "asc"))
+  .where('Visible', '==', 'si' ))
   //.orderBy("timestamp", "desc").limit(10))
   .snapshotChanges().pipe(
     map(actions => {  
@@ -81,7 +84,7 @@ getItemByCatId(){
 
 getAlbums(){
   console.log("start getAlbums");
-  return this.firestore.collection<any>('music_albums', ref => ref
+  return this.firestore.collection<any>(('music_albums'), ref => ref
   .where('Visible', '==', 'si' )).snapshotChanges().pipe(
     map(actions => {
       return actions.map(a => {
@@ -110,7 +113,9 @@ getAlbumsRecommended(){
 }
 
 
-/* ********************************* */
+//******************************//
+//**Added, Update & Delete******//
+//******************************//
 
 addedBand(
   photo: any,
@@ -136,7 +141,38 @@ addedBand(
   });
 }
 
+/*------------------------------------------------------------*/
 
+deleteBand(BandId: string){
+  return this.firestore.doc('music_bands/'+BandId).delete();
+}
+/* ---------------------------------------------------------- */
 
+edit(
+  bandId:string,
+  photo,
+  music,
+  name,
+  rating,
+  description,
+  question,
+  short_description)
+{
+return  this.firestore.doc<any>('music_bands/'+bandId).update({
+Available: "si",
+Visible:  "si",
+update: new Date(),
+music_categoryId: bandId,
+music_category_name:name,
+image: photo,
+music: music,
+name:name,
+year: 1998,
+rating: rating,
+recommended:Boolean =question,
+description:description,
+short_description:short_description
+});
+}
 }
 

@@ -60,7 +60,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".lettercarrousel {\n  margin-left: 3%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcc2VjdGlvbi1kb3MuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxlQUFBO0FBQ0oiLCJmaWxlIjoic2VjdGlvbi1kb3MuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubGV0dGVyY2Fycm91c2Vse1xyXG4gICAgbWFyZ2luLWxlZnQ6IDMlO1xyXG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzZWN0aW9uLWRvcy5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -128,8 +128,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SectionTwoComponent = class SectionTwoComponent {
-    constructor(activatedRoute, musicservice, firestore, router) {
-        this.activatedRoute = activatedRoute;
+    constructor(musicservice, firestore, router) {
         this.musicservice = musicservice;
         this.firestore = firestore;
         this.router = router;
@@ -186,7 +185,7 @@ let SectionTwoComponent = class SectionTwoComponent {
         });
     }
     getPopularSong() {
-        this.Popular = this.musicservice.getPopularSong();
+        this.Popular = this.musicservice.getAlbumsRecommended();
     }
     ngOnInit() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
@@ -195,7 +194,6 @@ let SectionTwoComponent = class SectionTwoComponent {
     }
 };
 SectionTwoComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] },
     { type: _services_music_service__WEBPACK_IMPORTED_MODULE_4__["MusicService"] },
     { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__["AngularFirestore"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] }
@@ -406,7 +404,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header  class=\"ion-no-border \">\r\n<ion-toolbar>\r\n<ion-grid fixed class=\"ion-no-padding\">\r\n<ion-searchbar class=\"ion-margin-top\" #searchbar placeholder=\"The Rolling Stones...\" showCancelButton  (ionInput)=\"filterList($event)\" (ionCancel)=\"close()\" cancelButtonText=\"Cerrar\"></ion-searchbar>\r\n</ion-grid>\r\n</ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content no-padding>\r\n<ion-grid fixed class=\"ion-no-padding\">\r\n<ion-list class=\"ion-margin-top\" *ngFor=\"let result of resultList\">\r\n<ion-item  *ngIf=\"resultList.length >= 1\" lines=\"none\" button  (click)=\"openDetail(result.id)\"     >\r\n<ion-thumbnail slot=\"start\">\r\n<ion-img [src]=\"result.image\"></ion-img>\r\n</ion-thumbnail>\r\n<ion-label>\r\n<h2>{{result.name}}</h2>\r\n<p>{{result.description}}</p>\r\n<ion-icon style=\"font-size: 14px !important;\" color=\"danger\" *ngFor=\"let i of [0,1,2,3,4]\" \r\n[name]=\"i < result.rating ? 'star' : 'star-outline'\">\r\n</ion-icon>\r\n</ion-label>\r\n</ion-item>\r\n</ion-list>\r\n\r\n\r\n    </ion-grid>\r\n    <div *ngIf=\"resultList == 0\">\r\n    <div class=\"center No\">\r\n    <ion-icon name=\"play-circle-outline\"  [ngStyle]=\"{'transform':  'scale(15.5)'}\" color=\"light\" ></ion-icon>\r\n    </div>\r\n    <br><br><br><br><br><br>\r\n    <ion-text color=\"ulightgrey\" class=\"ion-margin-bottom center\">\r\n    <h1 class=\"main-header4\">¿No has encontrado tu banda?</h1>\r\n    </ion-text>\r\n    <br>\r\n    <br>\r\n    <div class=\"ion-text-center slide-right agregarbanda\" >\r\n    <ion-button mode=\"ios\"  shape=\"round\"  color=\"danger\" class=\"main-header7\" (click)=\"AddBand()\">¡Agrégala!\r\n    </ion-button>\r\n    <br><br><br>\r\n    </div>\r\n    </div>\r\n\r\n    <div *ngIf=\"!resultList\">\r\n    <div class=\"center No\">\r\n    <ion-icon name=\"planet\"  [ngStyle]=\"{'transform':  'scale(17.5)'}\" color=\"light\" ></ion-icon>\r\n    <br><br><br><br><br><br>\r\n    <ion-text color=\"ulightgrey\" class=\"ion-margin-bottom find\">\r\n    <h1 class=\"main-header4\">¡Encuentra tu banda favorita!</h1>\r\n    </ion-text>\r\n    </div>\r\n    </div>\r\n  \r\n</ion-content>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header  class=\"ion-no-border \">\r\n<ion-toolbar>\r\n<ion-grid fixed class=\"ion-no-padding\">\r\n<ion-searchbar class=\"ion-margin-top\" #searchbar placeholder=\"The Rolling Stones...\" showCancelButton  (ionInput)=\"filterList($event)\" (ionCancel)=\"close()\" cancelButtonText=\"Cerrar\"></ion-searchbar>\r\n</ion-grid>\r\n</ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content no-padding>\r\n<ion-grid fixed class=\"ion-no-padding\">\r\n<ion-list class=\"ion-margin-top\" *ngFor=\"let result of resultList\">\r\n<ion-item  *ngIf=\"resultList.length >= 1\" lines=\"none\" button  (click)=\"openDetail(result.id)\"     >\r\n<ion-thumbnail slot=\"start\">\r\n<ion-img [src]=\"result.image\"></ion-img>\r\n</ion-thumbnail>\r\n<ion-label>\r\n<h2>{{result.name}}</h2>\r\n<p>{{result.description}}</p>\r\n<ion-icon style=\"font-size: 14px !important;\" color=\"danger\" *ngFor=\"let i of [0,1,2,3,4]\" \r\n[name]=\"i < result.rating ? 'star' : 'star-outline'\">\r\n</ion-icon>\r\n</ion-label>\r\n</ion-item>\r\n</ion-list>\r\n\r\n\r\n    </ion-grid>\r\n    <div *ngIf=\"resultList.length <=0  \">\r\n    <div class=\"center No\">\r\n    <ion-icon name=\"play-circle-outline\"  [ngStyle]=\"{'transform':  'scale(15.5)'}\" color=\"light\" ></ion-icon>\r\n    </div>\r\n    <br><br><br><br><br><br>\r\n    <ion-text color=\"ulightgrey\" class=\"ion-margin-bottom center\">\r\n    <h1 class=\"main-header4\">¿No has encontrado tu banda?</h1>\r\n    </ion-text>\r\n    <br>\r\n    <br>\r\n    <div class=\"ion-text-center slide-right agregarbanda\" >\r\n    <ion-button mode=\"ios\"  shape=\"round\"  color=\"danger\" class=\"main-header7\" (click)=\"AddBand()\">¡Agrégala!\r\n    </ion-button>\r\n    <br><br><br>\r\n    </div>\r\n    </div>\r\n\r\n    <div *ngIf=\"!resultList\">\r\n    <div class=\"center No\">\r\n    <ion-icon name=\"planet\"  [ngStyle]=\"{'transform':  'scale(17.5)'}\" color=\"light\" ></ion-icon>\r\n    <br><br><br><br><br><br>\r\n    <ion-text color=\"ulightgrey\" class=\"ion-margin-bottom find\">\r\n    <h1 class=\"main-header4\">¡Encuentra tu banda favorita!</h1>\r\n    </ion-text>\r\n    </div>\r\n    </div>\r\n  \r\n</ion-content>\r\n");
 
 /***/ }),
 
@@ -469,56 +467,14 @@ let MusicService = class MusicService {
     constructor(firestore) {
         this.firestore = firestore;
     }
-    //*******************************//
-    //******** Search Item *********//
-    //******************************//
-    searchItem() {
-        console.log("called searchItem");
-        return this.firestore.collection('music_popular', ref => ref
-            .where('Visible', '==', 'si')).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
-            return actions.map(a => {
-                const data = a.payload.doc.data();
-                // get id from firebase metadata 
-                const id = a.payload.doc.id;
-                return Object.assign({ id }, data);
-            });
-        }));
-    }
-    //************************//
-    //****** PopularSong ******//
-    //************************//
-    getPopularSong() {
-        console.log("start getPopularSong");
-        return this.firestore.collection('music_popularsong', ref => ref
-            .where('Visible', '==', 'si')).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
-            return actions.map(a => {
-                const data = a.payload.doc.data();
-                // get id from firebase metadata 
-                const id = a.payload.doc.id;
-                return Object.assign({ id }, data);
-            });
-        }));
-    }
-    //************************//
-    //****** Playlists ******//
-    //************************//
-    getPlaylists() {
-        console.log("start getPlaylists");
-        return this.firestore.collection('music_playlists', ref => ref
-            .where('Visible', '==', 'si')).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
-            return actions.map(a => {
-                const data = a.payload.doc.data();
-                // get id from firebase metadata 
-                const id = a.payload.doc.id;
-                return Object.assign({ id }, data);
-            });
-        }));
-    }
     //******************************//
     //****** Get item detail  ******//
     //******************************//
     getItemDetail(itemId) {
         return this.firestore.doc('music_bands/' + itemId).valueChanges();
+    }
+    getAlbumsDetail(albumId) {
+        return this.firestore.doc('music_albums/' + albumId).valueChanges();
     }
     //******************************//
     //****** Get Bands  ************//
@@ -538,7 +494,7 @@ let MusicService = class MusicService {
     getBandsRecommended() {
         console.log("start getBandsRecommended");
         return this.firestore.collection('music_bands', ref => ref
-            .where('recommended', '==', true)).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
+            .where('Visible', '==', 'si').where('recommended', '==', true)).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
             return actions.map(a => {
                 const data = a.payload.doc.data();
                 // get id from firebase metadata 
@@ -553,7 +509,7 @@ let MusicService = class MusicService {
     getItemByCatId() {
         return this.firestore.collection('/music_albums', ref => ref
             .where('Available', '==', 'si')
-            .where('Visible', '==', 'si').orderBy("music_category_name", "asc"))
+            .where('Visible', '==', 'si'))
             //.orderBy("timestamp", "desc").limit(10))
             .snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
             return actions.map(a => {
@@ -569,7 +525,7 @@ let MusicService = class MusicService {
     //******************************//
     getAlbums() {
         console.log("start getAlbums");
-        return this.firestore.collection('music_albums', ref => ref
+        return this.firestore.collection(('music_albums'), ref => ref
             .where('Visible', '==', 'si')).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
             return actions.map(a => {
                 const data = a.payload.doc.data();
@@ -579,7 +535,21 @@ let MusicService = class MusicService {
             });
         }));
     }
-    /* ********************************* */
+    getAlbumsRecommended() {
+        console.log("start getAlbumsRecommended");
+        return this.firestore.collection('music_albums', ref => ref
+            .where('Visible', '==', 'si').where('front', '==', true)).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
+            return actions.map(a => {
+                const data = a.payload.doc.data();
+                // get id from firebase metadata 
+                const id = a.payload.doc.id;
+                return Object.assign({ id }, data);
+            });
+        }));
+    }
+    //******************************//
+    //**Added, Update & Delete******//
+    //******************************//
     addedBand(photo, music, name, rating, description, question, short_description) {
         console.log("___addBand=");
         return this.firestore.collection('music_bands').add({
@@ -593,6 +563,28 @@ let MusicService = class MusicService {
             recommended: question,
             short_description: short_description,
             createdTime: new Date()
+        });
+    }
+    /*------------------------------------------------------------*/
+    deleteBand(BandId) {
+        return this.firestore.doc('music_bands/' + BandId).delete();
+    }
+    /* ---------------------------------------------------------- */
+    edit(bandId, photo, music, name, rating, description, question, short_description) {
+        return this.firestore.doc('music_bands/' + bandId).update({
+            Available: "si",
+            Visible: "si",
+            update: new Date(),
+            music_categoryId: bandId,
+            music_category_name: name,
+            image: photo,
+            music: music,
+            name: name,
+            year: 1998,
+            rating: rating,
+            recommended: Boolean = question,
+            description: description,
+            short_description: short_description
         });
     }
 };
@@ -913,7 +905,7 @@ AppComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n<ion-slides class=\"swiper-container\" pager= false \r\n[options]=\"slideOption\" #slidesOne  style=\"z-index: 2;\"\r\n>\r\n\r\n  <ion-slide  *ngFor=\"let album of Albums| async \"\r\n  >\r\n  <ion-card class=\"music-main-h-card music-card2 slide-left\"  *ngIf=\"album.recommended\" (click)=\"openDetail('music-album-detail',album.id)\">\r\n  <div class=\"music-card2-bg ion-text-uppercase\" [ngStyle]=\"{'background-image': 'url(' + album.image+ ')'}\" >\r\n  <h2 class=\"card2-title\">   <br><br><br><br><br>{{album.name}}</h2>                           \r\n  </div>\r\n  </ion-card>\r\n  </ion-slide>\r\n  </ion-slides>\r\n  \r\n  <br><br><br><br><br><br><br><br><br>\r\n  <div class=\"borde\"></div>\r\n  ");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n<ion-slides class=\"swiper-container\" pager= false \r\n[options]=\"slideOption\" #slidesOne  style=\"z-index: 2;\">\r\n\r\n  <ion-slide  *ngFor=\"let album of Albums| async \"\r\n  >\r\n  <ion-card class=\"music-main-h-card music-card2 slide-left\"  *ngIf=\"album.recommended\" (click)=\"openDetail('music-album-detail',album.id)\">\r\n  <div class=\"music-card2-bg ion-text-uppercase\" [ngStyle]=\"{'background-image': 'url(' + album.image+ ')'}\" >\r\n  <h2 class=\"card2-title\">   <br><br><br><br><br>{{album.name}}</h2>                           \r\n  </div>\r\n  </ion-card>\r\n  </ion-slide>\r\n  </ion-slides>\r\n  \r\n  <br><br><br><br><br><br><br><br><br>\r\n  <div class=\"borde\"></div>\r\n  ");
 
 /***/ }),
 
@@ -927,6 +919,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n  <ion-split-pane contentId=\"main-content\">\r\n    <ion-menu contentId=\"main-content\" type=\"overlay\" swipe-gesture=\"false\" >\r\n\r\n      <div class=\"imagesidemenu\">\r\n        <div class=\"center logo\">\r\n        <ion-icon name=\"planet\" [ngStyle]=\"{'transform':  'scale(10.5)'}\" color=\"light\" ></ion-icon>\r\n      </div>\r\n      </div>\r\n\r\n\r\n      <ion-content lines=\"none\">\r\n        <ion-list id=\"inbox-list\" >\r\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages; let i = index\">\r\n            <ion-item routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\" detail=\"false\" routerLinkActive=\"selected\">\r\n              <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\r\n              <ion-label>{{ p.title }}</ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n        </ion-list>\r\n\r\n      </ion-content>\r\n\r\n      <ion-footer>\r\n      <ion-menu-toggle >\r\n      <ion-button mode=\"ios\"  expand=\"full\" color=\"translucent\" lines=\"none\" routerLink=\"../../music-add-band\">\r\n      <ion-text color=\"dark\" class=\"main-header7\">Add \r\n      </ion-text> \r\n      <ion-icon name=\"add\" color=\"dark\"  slot=\"end\">\r\n      </ion-icon>\r\n      </ion-button>\r\n      </ion-menu-toggle>\r\n      <ion-menu-toggle >\r\n      <ion-button mode=\"ios\"  expand=\"full\" color=\"light\" (click)=\"onLogout()\" class=\"main-header7\">\r\n      Exit <ion-icon name=\"log-out-outline\" slot=\"end\">\r\n      </ion-icon>\r\n      </ion-button>\r\n      </ion-menu-toggle>\r\n      </ion-footer>\r\n\r\n\r\n\r\n    </ion-menu>\r\n    <ion-router-outlet id=\"main-content\"></ion-router-outlet>\r\n  </ion-split-pane>\r\n</ion-app>\r\n");
+
+/***/ }),
+
+/***/ "YRfL":
+/*!*************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/headers/edit-band/edit-band.component.html ***!
+  \*************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header  class=\"ion-no-border fade-in\">\n  <ion-toolbar color=\"translucent\">\n  <ion-buttons slot=\"start\" >\n  <ion-menu-button  class=\"title-intro\" ><ion-icon name=\"musical-note\" ></ion-icon></ion-menu-button>\n  </ion-buttons>\n  <ion-title class=\"ion-text-center title-intro\">Edit Band </ion-title>\n \n          <ion-buttons slot=\"end\">\n<!-- Search -->\n          <ion-button class=\"badge-button lupa  fade-in\"  (click)=\"openSearchModal()\"   contentId=\"maintwo\"  menuId=\"four\">\n          <ion-icon name=\"search-outline\" color=\"light\"></ion-icon>\n          </ion-button>\n          </ion-buttons>\n</ion-toolbar>\n</ion-header>");
 
 /***/ }),
 
@@ -1023,9 +1028,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_album_header_album_header_album_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/album/header-album/header-album.component */ "R+qG");
 /* harmony import */ var _components_album_section_uno_section_uno_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/album/section-uno/section-uno.component */ "uOtd");
 /* harmony import */ var _components_album_section_dos_section_dos_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/album/section-dos/section-dos.component */ "AUDz");
-/* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "VYYF");
-/* harmony import */ var _ionic_native_native_audio_ngx__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @ionic-native/native-audio/ngx */ "fLLL");
-/* harmony import */ var _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @ionic-native/media/ngx */ "9YJ4");
+/* harmony import */ var _components_headers_edit_band_edit_band_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/headers/edit-band/edit-band.component */ "uauA");
+/* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "VYYF");
 
 
 
@@ -1054,9 +1058,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+/* Edit Detail */
+
 /* Plugins */
-
-
 
 let AppModule = class AppModule {
 };
@@ -1074,9 +1078,7 @@ AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         ],
         providers: [
             /* plugins */
-            _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_23__["StatusBar"],
-            _ionic_native_native_audio_ngx__WEBPACK_IMPORTED_MODULE_24__["NativeAudio"],
-            _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_25__["Media"],
+            _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_24__["StatusBar"],
             /* global */
             _components_global_back_back_component__WEBPACK_IMPORTED_MODULE_13__["BackComponent"],
             _components_global_back_short_back_short_component__WEBPACK_IMPORTED_MODULE_14__["BackShortComponent"],
@@ -1092,6 +1094,8 @@ AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_album_header_album_header_album_component__WEBPACK_IMPORTED_MODULE_20__["HeaderAlbumComponent"],
             _components_album_section_uno_section_uno_component__WEBPACK_IMPORTED_MODULE_21__["SectionUnoComponent"],
             _components_album_section_dos_section_dos_component__WEBPACK_IMPORTED_MODULE_22__["SectionDosComponent"],
+            /* Detail Edit  */
+            _components_headers_edit_band_edit_band_component__WEBPACK_IMPORTED_MODULE_23__["EditBandComponent"],
             { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"], }
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
@@ -2021,7 +2025,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-content no-padding>\r\n\r\n  \r\n    <h1 class=\"letterinicio lettercarrousel\">KISS</h1>\r\n    <br>\r\n    <ion-slides class=\"swiper-container fade-in\" pager= false\r\n     [options]=\"slideOption\" #slidesOne style=\"margin-top:-40px !important;\" >\r\n     \r\n        <ion-slide  (click)=\"openDetail('music-album-detail',item.id)\"  *ngFor=\"let item of Items | async\">\r\n            <div *ngIf=\"item.music_categoryId == 4 \">\r\n        <ion-card class=\"music-main-h-card music-card0 slide-left fade-in-left\"  >\r\n        <div class=\"music-card0-bg ion-text-uppercase\" [ngStyle]=\"{'background-image': 'url(' + item.image+ ')'}\" >\r\n        <h2 class=\"card2-title\"> <br>{{item.name}}</h2>                           \r\n        </div>\r\n        </ion-card>\r\n        </div>\r\n        </ion-slide>\r\n        </ion-slides>\r\n      \r\n      <h1 class=\"letterinicio lettercarrousel\">AC/DC</h1>\r\n      <br>\r\n      <ion-slides class=\"swiper-container fade-in\" pager= false\r\n      [options]=\"slideOption\" #slidesOne style=\"margin-top:-40px !important;\">\r\n      \r\n\r\n      <ion-slide  (click)=\"openDetail('music-album-detail',item.id)\"   *ngFor=\"let item of Items | async\">\r\n        <div *ngIf=\"item.music_categoryId == 5\">\r\n        <ion-card class=\"music-main-h-card music-card0 slide-left fade-in-left\"  >\r\n        <div class=\"music-card0-bg ion-text-uppercase\" [ngStyle]=\"{'background-image': 'url(' + item.image+ ')'}\" >\r\n        <h2 class=\"card2-title\">   <br>{{item.name}}</h2>                           \r\n        </div>\r\n        </ion-card>\r\n        </div>\r\n        </ion-slide>\r\n      </ion-slides>\r\n\r\n      <h1 class=\"letterinicio lettercarrousel\">THE RAMONES</h1>\r\n      <br>\r\n      <ion-slides class=\"swiper-container fade-in\" pager= false\r\n      [options]=\"slideOption\" #slidesOne style=\"margin-top:-40px !important;\">\r\n      \r\n\r\n      <ion-slide  (click)=\"openDetail('music-album-detail',item.id)\"   *ngFor=\"let item of Items | async\">\r\n        <div *ngIf=\"item.music_categoryId == 6\">\r\n        <ion-card class=\"music-main-h-card music-card0 slide-left fade-in-left\"  >\r\n        <div class=\"music-card0-bg ion-text-uppercase\" [ngStyle]=\"{'background-image': 'url(' + item.image+ ')'}\" >\r\n        <h2 class=\"card2-title\">   <br>{{item.name}}</h2>                           \r\n        </div>\r\n        </ion-card>\r\n        </div>\r\n        </ion-slide>\r\n      </ion-slides>\r\n      \r\n      <!-- <h1 class=\"letterinicio lettercarrousel\">QUEEN</h1>\r\n      <br>\r\n      <ion-slides class=\"swiper-container fade-in\" pager= false\r\n      [options]=\"slideOption\" #slidesOne style=\"margin-top:-40px !important;\" >\r\n      \r\n\r\n      <ion-slide  (click)=\"openDetail('music-album-detail',item.id)\"  *ngFor=\"let item of Items | async\">\r\n        <div *ngIf=\"item.music_categoryId == '7'\">\r\n        <ion-card class=\"music-main-h-card music-card0 slide-left fade-in-left\"  >\r\n        <div class=\"music-card0-bg ion-text-uppercase\" [ngStyle]=\"{'background-image': 'url(' + item.image+ ')'}\" >\r\n        <h2 class=\"card2-title\">   <br>{{item.name}}</h2>                           \r\n        </div>\r\n        </ion-card>\r\n        </div>\r\n        </ion-slide>\r\n      </ion-slides>\r\n\r\n      <h1 class=\"letterinicio lettercarrousel\">LED ZEPELLIN</h1>\r\n      <br>\r\n      <ion-slides class=\"swiper-container fade-in\" pager= false\r\n      [options]=\"slideOption\" #slidesOne style=\"margin-top:-40px !important;\" >\r\n      \r\n\r\n      <ion-slide  (click)=\"openDetail('music-album-detail',item.id)\"  *ngFor=\"let item of Items | async\">\r\n        <div *ngIf=\"item.music_categoryId == '8'\">\r\n        <ion-card class=\"music-main-h-card music-card0 slide-left fade-in-left\"  >\r\n        <div class=\"music-card0-bg ion-text-uppercase\" [ngStyle]=\"{'background-image': 'url(' + item.image+ ')'}\" >\r\n        <h2 class=\"card2-title\">   <br>{{item.name}}</h2>                           \r\n        </div>\r\n        </ion-card>\r\n        </div>\r\n        </ion-slide>\r\n      </ion-slides> -->\r\n\r\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n  \r\n    <h1 class=\"letterinicio lettercarrousel\">KISS</h1>\r\n    <br>\r\n    <ion-slides class=\"swiper-container fade-in\" pager= false\r\n     [options]=\"slideOption\" #slidesOne style=\"margin-top:-40px !important;\" >\r\n     \r\n        <ion-slide  (click)=\"openDetail('music-album-detail',item.id)\"  *ngFor=\"let item of Items | async\">\r\n            <div *ngIf=\"item.music_category_name == 'KISS' \">\r\n        <ion-card class=\"music-main-h-card music-card0 slide-left fade-in-left\"  >\r\n        <div class=\"music-card0-bg ion-text-uppercase\" [ngStyle]=\"{'background-image': 'url(' + item.image+ ')'}\" >\r\n        <h2 class=\"card2-title\"> <br>{{item.name}}</h2>                           \r\n        </div>\r\n        </ion-card>\r\n        </div>\r\n        </ion-slide>\r\n        </ion-slides>\r\n      \r\n      <h1 class=\"letterinicio lettercarrousel\">AC/DC</h1>\r\n      <br>\r\n      <ion-slides class=\"swiper-container fade-in\" pager= false\r\n      [options]=\"slideOption\" #slidesOne style=\"margin-top:-40px !important;\">\r\n      \r\n\r\n      <ion-slide  (click)=\"openDetail('music-album-detail',item.id)\"   *ngFor=\"let item of Items | async\">\r\n        <div *ngIf=\"item.music_category_name == 'AC/DC'\">\r\n        <ion-card class=\"music-main-h-card music-card0 slide-left fade-in-left\"  >\r\n        <div class=\"music-card0-bg ion-text-uppercase\" [ngStyle]=\"{'background-image': 'url(' + item.image+ ')'}\" >\r\n        <h2 class=\"card2-title\">   <br>{{item.name}}</h2>                           \r\n        </div>\r\n        </ion-card>\r\n        </div>\r\n        </ion-slide>\r\n      </ion-slides>\r\n\r\n      <h1 class=\"letterinicio lettercarrousel\">THE RAMONES</h1>\r\n      <br>\r\n      <ion-slides class=\"swiper-container fade-in\" pager= false\r\n      [options]=\"slideOption\" #slidesOne style=\"margin-top:-40px !important;\">\r\n      \r\n\r\n      <ion-slide  (click)=\"openDetail('music-album-detail',item.id)\"   *ngFor=\"let item of Items | async\">\r\n        <div *ngIf=\"item.music_category_name == 'THE RAMONES'\">\r\n        <ion-card class=\"music-main-h-card music-card0 slide-left fade-in-left\"  >\r\n        <div class=\"music-card0-bg ion-text-uppercase\" [ngStyle]=\"{'background-image': 'url(' + item.image+ ')'}\" >\r\n        <h2 class=\"card2-title\">   <br>{{item.name}}</h2>                           \r\n        </div>\r\n        </ion-card>\r\n        </div>\r\n        </ion-slide>\r\n      </ion-slides>\r\n      \r\n      <!-- <h1 class=\"letterinicio lettercarrousel\">QUEEN</h1>\r\n      <br>\r\n      <ion-slides class=\"swiper-container fade-in\" pager= false\r\n      [options]=\"slideOption\" #slidesOne style=\"margin-top:-40px !important;\" >\r\n      \r\n\r\n      <ion-slide  (click)=\"openDetail('music-album-detail',item.id)\"  *ngFor=\"let item of Items | async\">\r\n        <div *ngIf=\"item.music_categoryId == '7'\">\r\n        <ion-card class=\"music-main-h-card music-card0 slide-left fade-in-left\"  >\r\n        <div class=\"music-card0-bg ion-text-uppercase\" [ngStyle]=\"{'background-image': 'url(' + item.image+ ')'}\" >\r\n        <h2 class=\"card2-title\">   <br>{{item.name}}</h2>                           \r\n        </div>\r\n        </ion-card>\r\n        </div>\r\n        </ion-slide>\r\n      </ion-slides>\r\n\r\n      </ion-slides> -->\r\n");
 
 /***/ }),
 
@@ -2048,6 +2052,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJoZWFkZXIuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "rjY6":
+/*!***********************************************************************!*\
+  !*** ./src/app/components/headers/edit-band/edit-band.component.scss ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJlZGl0LWJhbmQuY29tcG9uZW50LnNjc3MifQ== */");
 
 /***/ }),
 
@@ -2121,6 +2138,65 @@ SectionUnoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
+/***/ "uauA":
+/*!*********************************************************************!*\
+  !*** ./src/app/components/headers/edit-band/edit-band.component.ts ***!
+  \*********************************************************************/
+/*! exports provided: EditBandComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditBandComponent", function() { return EditBandComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _raw_loader_edit_band_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./edit-band.component.html */ "YRfL");
+/* harmony import */ var _edit_band_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit-band.component.scss */ "rjY6");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _music_music_search_music_search_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../music/music-search/music-search.page */ "ff9t");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "tyNb");
+
+
+
+
+
+
+
+let EditBandComponent = class EditBandComponent {
+    constructor(modalController, activatedRoute) {
+        this.modalController = modalController;
+        this.activatedRoute = activatedRoute;
+    }
+    openSearchModal() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            console.log("openModal");
+            const modal = yield this.modalController.create({
+                component: _music_music_search_music_search_page__WEBPACK_IMPORTED_MODULE_5__["MusicSearchPage"],
+                componentProps: {}
+            });
+            return yield modal.present();
+        });
+    }
+    ngOnInit() {
+        this.folder = this.activatedRoute.snapshot.paramMap.get('id');
+    }
+};
+EditBandComponent.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] }
+];
+EditBandComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+        selector: 'app-edit-band',
+        template: _raw_loader_edit_band_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
+        styles: [_edit_band_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
+    })
+], EditBandComponent);
+
+
+
+/***/ }),
+
 /***/ "uyJF":
 /*!****************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/inicio/section-two/section-two.component.html ***!
@@ -2177,12 +2253,17 @@ const routes = [
     },
     {
         path: 'music-detail/:detailId',
-        loadChildren: () => __webpack_require__.e(/*! import() | music-music-detail-music-detail-module */ "music-music-detail-music-detail-module").then(__webpack_require__.bind(null, /*! ./music/music-detail/music-detail.module */ "wbAx")).then(m => m.MusicDetailPageModule),
+        loadChildren: () => Promise.all(/*! import() | music-music-detail-music-detail-module */[__webpack_require__.e("common"), __webpack_require__.e("music-music-detail-music-detail-module")]).then(__webpack_require__.bind(null, /*! ./music/music-detail/music-detail.module */ "wbAx")).then(m => m.MusicDetailPageModule),
         canActivate: [_shared_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
     },
     {
         path: 'music-album-detail/:albumId',
         loadChildren: () => __webpack_require__.e(/*! import() | music-music-album-detail-music-album-detail-module */ "music-music-album-detail-music-album-detail-module").then(__webpack_require__.bind(null, /*! ./music/music-album-detail/music-album-detail.module */ "w/Zp")).then(m => m.MusicAlbumDetailPageModule),
+        canActivate: [_shared_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
+    },
+    {
+        path: 'music-detail-edit/:editId',
+        loadChildren: () => Promise.all(/*! import() | music-music-detail-edit-music-detail-edit-module */[__webpack_require__.e("common"), __webpack_require__.e("music-music-detail-edit-music-detail-edit-module")]).then(__webpack_require__.bind(null, /*! ./music/music-detail-edit/music-detail-edit.module */ "dfXD")).then(m => m.MusicDetailEditPageModule),
         canActivate: [_shared_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
     },
     {
@@ -2192,7 +2273,7 @@ const routes = [
     },
     {
         path: 'music-add-band',
-        loadChildren: () => __webpack_require__.e(/*! import() | music-music-add-band-music-add-band-module */ "music-music-add-band-music-add-band-module").then(__webpack_require__.bind(null, /*! ./music/music-add-band/music-add-band.module */ "BNW0")).then(m => m.MusicAddBandPageModule),
+        loadChildren: () => Promise.all(/*! import() | music-music-add-band-music-add-band-module */[__webpack_require__.e("common"), __webpack_require__.e("music-music-add-band-music-add-band-module")]).then(__webpack_require__.bind(null, /*! ./music/music-add-band/music-add-band.module */ "BNW0")).then(m => m.MusicAddBandPageModule),
         canActivate: [_shared_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
     },
     {

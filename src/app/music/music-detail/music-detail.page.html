@@ -40,7 +40,7 @@
 
 <ion-slide  (click)="openDetail('music-album-detail',album.id)"   *ngFor="let album of Albums | async">
   <div *ngIf="album.music_categoryId == itemArray.Control_Id">
-  <ion-card class="music-main-h-card music-card0 slide-left fade-in-left"  >
+  <ion-card class="music-main-h-card music-card0 slide-left"  >
   <div class="music-card0-bg ion-text-uppercase" [ngStyle]="{'background-image': 'url(' + album.image+ ')'}" >
   <h2 class="card2-title">   <br>{{album.name}}</h2>                           
   </div>
@@ -49,9 +49,26 @@
   </ion-slide>
 </ion-slides>
 
-<!-- <div *ngIf="">
+  &nbsp;&nbsp; {{caption2}}
 
-</div> -->
+  <br>
+  
+  <ion-button
+class="center"
+ type="submit"
+(click)="openEdit()" 
+shape="round"
+color="light"
+mode="ios">Edit</ion-button>
+
+
+<ion-button
+class="center"
+ type="submit"
+ (click)="deleteBand()"
+shape="full"
+color="danger"
+mode="ios">Delete</ion-button>
 
 
 </ion-grid>

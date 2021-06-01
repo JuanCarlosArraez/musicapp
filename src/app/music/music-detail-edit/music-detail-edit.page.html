@@ -1,9 +1,86 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>musicDetailEdit</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+
+  <!-- background -->
+  <app-back></app-back>
+  <!-- header -->
+  <app-edit-band></app-edit-band>
+  <br><br><br><br><br><br><br><br><br>
+  <div class="borde"></div>
+
+    <form [formGroup]="BandForm" novalidate>
+    <ion-card class="addPhoto center" *ngIf="!ItemSelect; else image">
+    <input #userInput  type="file"  (change)="loadImageFromDevice1($event)" class="fileInput" accept="image/*"> 
+    
+    <ion-icon name="cloud-upload-outline" [ngStyle]="{'transform':  'scale(5.5)'}" 
+    class=" upfile" (click)="loadImageActionSheet1($event)">
+    </ion-icon>
+           <h1 class="main-b-header7 upletter">Upload photo</h1>
+           <br>
+           <h1 class="main-b-header9 upsource" color="light"> {{ItemSelect}}</h1>
+    </ion-card>
+    
+    <ng-template #image>
+    <ion-card class="addPhoto center">
+    <img [src]="newImage" alt="">
+    </ion-card>
+    </ng-template>
+    
+             <input #musicInput  type="file" 
+             (change)="loadImageFromDevice2($event)" class="fileInput" accept=".mpeg,audio/*">
+    
+             <ion-button mode="ios" color="light" style="margin-left: 3%;" (click)="loadImageActionSheet2($event)" >
+              
+             <div *ngIf="!MusicSelect ;else song">
+             <ion-icon name="musical-note-outline" [ngStyle]="{'transform':  'scale(1.5)'}" slot="start" >
+             </ion-icon>          
+             Select Music
+             </div>
+             <ng-template #song>
+             Selected    &nbsp;  &nbsp;   
+             <ion-icon name="checkmark-circle" [ngStyle]="{'transform':  'scale(1.5)'}" color="success">
+             </ion-icon>
+             </ng-template>
+             </ion-button>
+             <br>
+             <br>
+          <ion-list lines="">   
+             <ion-item>
+             <ion-label position="stacked">Band</ion-label>
+             <ion-input  type="text"  formControlName="name" min="2" max="10" required></ion-input>
+             </ion-item>
+             <ion-item>
+             <ion-label position="stacked">Rating (1-5)</ion-label>
+             <ion-input  type="number" min="1" max="5" formControlName="rating" required ></ion-input>
+             </ion-item>  
+             <ion-item>
+             <ion-label position="stacked">Short Description</ion-label>
+             <ion-input  type="text" min="5" max="30"  formControlName="short_description" required></ion-input>
+             </ion-item>
+             <ion-list>
+             <ion-radio-group  value="" (ionChange)="getvalueChecked($event)" formControlName="question">
+             <ion-list-header>
+             <ion-label>Recommended?</ion-label>
+             </ion-list-header>
+             <ion-item lines="none">
+             <ion-label>Yes</ion-label>
+             <ion-radio slot="start" [value]="true" slot="start" mode="md" color="danger"></ion-radio>
+             </ion-item>
+             <ion-item lines="none">
+             <ion-label>No</ion-label>
+             <ion-radio slot="start" [value]="false" slot="start" mode="md" color="danger"></ion-radio>
+             </ion-item>
+             </ion-radio-group>
+             </ion-list>
+             <ion-item>
+             <ion-label position="stacked">Description</ion-label>
+             <ion-textarea formControlName="description" min="10" max="250" required rows = "6"  placeholder="Write a description..." ></ion-textarea>
+             </ion-item>
+             </ion-list>
+      </form>
+    
+    
+<ion-button color="success" expand="full"  (click)="editBand()" >Editar</ion-button>
+
+
 
 </ion-content>

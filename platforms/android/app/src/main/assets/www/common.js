@@ -56,6 +56,105 @@ const openURL = async (url, ev, direction, animation) => {
 
 /***/ }),
 
+/***/ "BES4":
+/*!*****************************************************!*\
+  !*** ./src/app/services/ionic-component.service.ts ***!
+  \*****************************************************/
+/*! exports provided: IonicComponentService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IonicComponentService", function() { return IonicComponentService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+
+
+
+let IonicComponentService = class IonicComponentService {
+    constructor(loadingController, toastController, menuCtrl) {
+        this.loadingController = loadingController;
+        this.toastController = toastController;
+        this.menuCtrl = menuCtrl;
+        this.isLoading = false;
+    }
+    //https://stackoverflow.com/questions/52574448/ionic-4-loading-controller-dismiss-is-called-before-present-which-will-ke
+    //**********************************//
+    //****** Loading component    ******//
+    //**********************************//
+    presentLoading() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this.isLoading = true;
+            return yield this.loadingController.create({
+                spinner: "crescent",
+                duration: 10000,
+                //   message: 'Please wait...',
+                translucent: true,
+                cssClass: 'loadingDialog'
+                //duration: 5000,
+            }).then(a => {
+                a.present().then(() => {
+                    console.log('presented');
+                    if (!this.isLoading) {
+                        a.dismiss().then(() => console.log('abort presenting'));
+                    }
+                });
+            });
+        });
+    }
+    presentTimeoutLoading(timeout, translucent) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this.isLoading = true;
+            return yield this.loadingController.create({
+                spinner: "crescent",
+                duration: timeout,
+                //   message: 'Please wait...',
+                translucent: translucent,
+                cssClass: 'loadingDialog'
+                //duration: 5000,
+            }).then(a => {
+                a.present().then(() => {
+                    console.log('presented');
+                    if (!this.isLoading) {
+                        a.dismiss().then(() => console.log('abort presenting'));
+                    }
+                });
+            });
+        });
+    }
+    presentToast(msg, duration) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const toast = yield this.toastController.create({
+                message: msg,
+                duration: duration,
+                color: "dark"
+            });
+            toast.present();
+        });
+    }
+    dismissLoading() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this.isLoading = false;
+            return yield this.loadingController.dismiss().then(() => console.log('dismissed'));
+        });
+    }
+};
+IonicComponentService.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"] }
+];
+IonicComponentService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], IonicComponentService);
+
+
+
+/***/ }),
+
 /***/ "JbSX":
 /*!*********************************************************************!*\
   !*** ./node_modules/@ionic/core/dist/esm/button-active-4927a4c1.js ***!
@@ -306,6 +405,72 @@ const spinners = {
 };
 const SPINNERS = spinners;
 
+
+
+
+/***/ }),
+
+/***/ "iPno":
+/*!*************************************************!*\
+  !*** ./src/app/services/firestorage.service.ts ***!
+  \*************************************************/
+/*! exports provided: FirestorageService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirestorageService", function() { return FirestorageService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/storage */ "Vaw3");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+
+
+
+
+let FirestorageService = class FirestorageService {
+    constructor(storage) {
+        this.storage = storage;
+    }
+    uploadImage(file, path, nombre) {
+        return new Promise(resolve => {
+            const filePath = path + '/' + nombre;
+            const ref = this.storage.ref(filePath);
+            const task = ref.put(file);
+            task.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["finalize"])(() => {
+                ref.getDownloadURL().subscribe(res => {
+                    const downloadURL = res;
+                    resolve(downloadURL);
+                    return;
+                });
+            }))
+                .subscribe();
+        });
+    }
+    uploadMusic(file, path, nombre) {
+        return new Promise(resolve => {
+            const filePath = path + '/' + nombre;
+            const ref = this.storage.ref(filePath);
+            const task = ref.put(file);
+            task.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["finalize"])(() => {
+                ref.getDownloadURL().subscribe(res => {
+                    const downloadURL = res;
+                    resolve(downloadURL);
+                    return;
+                });
+            }))
+                .subscribe();
+        });
+    }
+};
+FirestorageService.ctorParameters = () => [
+    { type: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"] }
+];
+FirestorageService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], FirestorageService);
 
 
 

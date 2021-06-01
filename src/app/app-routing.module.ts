@@ -35,6 +35,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],/* si el usuario NO esta logado, dirigirlo hasta LOGIN "music-login.html" */
   },
   {
+    path: 'music-detail-edit/:editId',
+    loadChildren: () => import('./music/music-detail-edit/music-detail-edit.module').then( m => m.MusicDetailEditPageModule),
+    canActivate: [AuthGuard],/* si el usuario NO esta logado, dirigirlo hasta LOGIN "music-login.html" */
+  },
+  {
     path: 'music-search',
     loadChildren: () => import('./music/music-search/music-search.module').then( m => m.MusicSearchPageModule),
     canActivate: [AuthGuard],/* si el usuario NO esta logado, dirigirlo hasta LOGIN "music-login.html" */
@@ -63,10 +68,8 @@ const routes: Routes = [
     path: 'music-forgot-password',
     loadChildren: () => import('./music/music-forgot-password/music-forgot-password.module').then( m => m.MusicForgotPasswordPageModule),
     canActivate: [NoLoginGuard]/* si el usuario esta logado, dirigirlo hasta donde vaya a pedir "folder/inicio.html" */ 
-  },  {
-    path: 'music-detail-edit',
-    loadChildren: () => import('./music/music-detail-edit/music-detail-edit.module').then( m => m.MusicDetailEditPageModule)
   },
+
 
 
  
